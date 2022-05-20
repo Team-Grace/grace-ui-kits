@@ -1,7 +1,7 @@
 {
-  "name": "grace-ui",
+  "name": "grace-ui-kits",
   "version": "1.0.0",
-  "description": "GRACE UI",
+  "description": "GRACE UI KITS",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Team-Grace/grace-ui"
+    "url": "git+https://github.com/Team-Grace/grace-ui-kits"
   },
   "author": "Gromit",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Team-Grace/grace-ui/issues"
+    "url": "https://github.com/Team-Grace/grace-ui-kits/issues"
   },
-  "homepage": "https://github.com/Team-Grace/grace-ui/issues/blob/master/README.md",
+  "homepage": "https://github.com/Team-Grace/grace-ui-kits/issues/blob/master/README.md",
   "dependencies": {
     "styled-components": "^5.3.5"
   },
