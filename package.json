@@ -1,7 +1,7 @@
 {
-  "name": "react-npm-deploy-boilerplate",
-  "version": "1.0.2",
-  "description": "react-npm-deploy-boilerplate",
+  "name": "grace-ui",
+  "version": "1.0.0",
+  "description": "GRACE UI",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ssi02014/react-npm-deploy-boilerplate.git"
+    "url": "git+https://github.com/Team-Grace/grace-ui"
   },
   "author": "Gromit",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ssi02014/react-npm-deploy-boilerplate.git/issues"
+    "url": "https://github.com/Team-Grace/grace-ui/issues"
   },
-  "homepage": "https://github.com/ssi02014/react-npm-deploy-boilerplate.git/blob/master/README.md",
+  "homepage": "https://github.com/Team-Grace/grace-ui/issues/blob/master/README.md",
   "dependencies": {
     "styled-components": "^5.3.5"
   },
