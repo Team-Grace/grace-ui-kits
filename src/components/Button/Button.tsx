@@ -1,25 +1,29 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useCallback } from 'react';
+import { ButtonProps } from './Button.interface';
+import { StyledButton } from './Button.styled';
 
-interface Props {
-  children: React.ReactNode;
-  size?: 'medium' | 'large';
-}
+const Button = ({
+  children,
+  onClick,
+  fullWidth = false,
+  size = 'medium',
+  shape = 'rect',
+  variant = 'contained',
+}: ButtonProps) => {
+  const handleClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    if (onClick) onClick(e);
+  }, []);
 
-const Button = ({ children, size = 'medium' }: Props) => {
-  return <StyledButton size={size}>{children}</StyledButton>;
+  return (
+    <StyledButton
+      size={size}
+      shape={shape}
+      variant={variant}
+      fullWidth={fullWidth}
+      onClick={handleClick}>
+      {children}
+    </StyledButton>
+  );
 };
-
-const StyledButton = styled.button<{ size: 'medium' | 'large' }>`
-  background-color: #fa9696;
-  border: none;
-  ${({ size }) => {
-    if (size === 'medium') {
-      return `padding: 10px 15px`;
-    } else {
-      return `padding: 15px 25px`;
-    }
-  }}
-`;
 
 export default Button;

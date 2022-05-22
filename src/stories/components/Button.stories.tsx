@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
+import { ButtonProps } from 'src/components/Button/Button.interface';
 import Button from 'src/components/Button/Button';
 
 export default {
@@ -10,32 +11,54 @@ export default {
       control: { type: 'check' },
     },
     size: {
-      options: ['medium', 'large'],
+      options: ['small', 'medium', 'large'],
       control: { type: 'select' },
     },
   },
 };
 
-interface Props {
-  size: 'medium' | 'large';
-  select: any[];
-}
-
-const Template: Story<Props> = ({ size }: Props) => {
+const Template: Story<ButtonProps> = ({
+  children,
+  fullWidth,
+  size,
+  onClick,
+}: ButtonProps) => {
   return (
-    <div>
-      <Button size={size}>안녕</Button>
-    </div>
+    <Button size={size} fullWidth={fullWidth} onClick={onClick}>
+      {children}
+    </Button>
   );
 };
 
-export const Default = Template.bind({});
-export const LARGE = Template.bind({});
+export const Small = Template.bind({});
+export const Medium = Template.bind({});
+export const Large = Template.bind({});
+export const FullWidth = Template.bind({});
 
-Default.args = {
-  size: 'medium',
+Small.args = {
+  children: 'Small',
+  fullWidth: false,
+  size: 'small',
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };
 
-LARGE.args = {
+Medium.args = {
+  children: 'Medium',
+  fullWidth: false,
+  size: 'medium',
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
+};
+
+Large.args = {
+  children: 'Large',
+  fullWidth: false,
   size: 'large',
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
+};
+
+FullWidth.args = {
+  children: 'Full Width',
+  fullWidth: true,
+  size: 'medium',
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };
