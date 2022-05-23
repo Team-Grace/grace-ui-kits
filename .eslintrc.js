@@ -23,5 +23,6 @@ module.exports = {
     '@typescript-eslint/no-unnecessary-type-constraint': 'off',
     '@typescript-eslint/no-empty-function': 'off',
     // '@typescript-eslint/no-unused-vars': 'off',
+    'react/display-name': 'off',
   },
 };
