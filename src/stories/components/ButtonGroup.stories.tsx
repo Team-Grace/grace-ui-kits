@@ -15,28 +15,41 @@ export default {
 };
 
 const Template: Story<ButtonGroupProps> = ({ direction }: ButtonGroupProps) => {
+  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(e.target);
+  };
+
   return (
     <>
       <ButtonGroup direction={direction}>
-        <Button size={'small'} onClick={() => {}}>
+        <Button color="primary" size={'small'} onClick={onClick}>
           SMALL
         </Button>
-        <Button size={'medium'} onClick={() => {}}>
+        <Button color="success" size={'medium'} onClick={onClick}>
           MEDIUM
         </Button>
-        <Button size={'large'} onClick={() => {}}>
+        <Button color="error" size={'large'} onClick={onClick}>
           LARGE
         </Button>
       </ButtonGroup>
       <hr />
+      <h1>width 100%</h1>
       <ButtonGroup direction={direction}>
-        <Button fullWidth={true} size={'small'} onClick={() => {}}>
+        <Button
+          color="primary"
+          fullWidth={true}
+          size={'small'}
+          onClick={onClick}>
           SMALL
         </Button>
-        <Button fullWidth={true} size={'medium'} onClick={() => {}}>
+        <Button
+          color="success"
+          fullWidth={true}
+          size={'medium'}
+          onClick={onClick}>
           MEDIUM
         </Button>
-        <Button fullWidth={true} size={'large'} onClick={() => {}}>
+        <Button color="error" fullWidth={true} size={'large'} onClick={onClick}>
           LARGE
         </Button>
       </ButtonGroup>

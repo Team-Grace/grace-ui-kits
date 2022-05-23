@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { ButtonGroupStyledProps } from './ButtonGroup.inteface';
 
 export const StyledButtonGroup = styled.div<ButtonGroupStyledProps>`
-  padding: 10px;
   display: flex;
   flex-direction: ${({ direction }) =>
     direction === 'row' ? 'row' : 'column'};

@@ -6,11 +6,13 @@ const Button = React.forwardRef(
   (
     {
       children,
-      onClick,
       fullWidth = false,
+      disabled = false,
+      color = 'primary',
       size = 'medium',
       shape = 'rect',
       variant = 'contained',
+      onClick,
     }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>
   ) => {
@@ -25,8 +27,10 @@ const Button = React.forwardRef(
         ref={ref}
         size={size}
         shape={shape}
+        color={color}
         variant={variant}
         fullWidth={fullWidth}
+        disabled={disabled}
         onClick={handleClick}>
         {children}
       </StyledButton>
