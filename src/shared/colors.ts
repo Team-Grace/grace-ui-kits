@@ -1,7 +1,36 @@
 export default {
   white: '#ffffff',
   black: '#000000',
-
+  primary: {
+    default: '#1890ff',
+    hover: '#40a9ff',
+    active: '#096dd9',
+    light: '#e6f7ff',
+  },
+  secondary: {
+    default: '#fc6600',
+    hover: '#fa8637',
+    active: '#e65e02',
+    light: '#fce8d9',
+  },
+  error: {
+    default: '#ff4d4f',
+    hover: '#ff7875',
+    active: '#d9363e',
+    light: '#fcdad7',
+  },
+  modern: {
+    default: '#3C3025',
+    hover: '#4b3d31',
+    active: '#30261d',
+    light: '#decdbf',
+  },
+  success: {
+    default: '#52c41a',
+    hover: '#73d13d',
+    active: '#389e0d',
+    light: '#e9fadc',
+  },
   gray: {
     10: '#fafafa',
     50: '#f6f6f6',
@@ -15,4 +44,4 @@ export default {
     800: '#333333',
     900: '#191919',
   },
-};
+} as const;

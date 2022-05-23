@@ -1,25 +1,51 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useCallback, ForwardedRef } from 'react';
+import { StyledButton } from './Button.styled';
 
-interface Props {
+export interface ButtonProps {
   children: React.ReactNode;
-  size?: 'medium' | 'large';
+  disabled?: boolean;
+  color?: 'primary' | 'secondary' | 'success' | 'error' | 'modern';
+  variant?: 'contained' | 'outlined';
+  size?: 'small' | 'medium' | 'large';
+  shape?: 'rect' | 'round';
+  fullWidth?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button = ({ children, size = 'medium' }: Props) => {
-  return <StyledButton size={size}>{children}</StyledButton>;
-};
-
-const StyledButton = styled.button<{ size: 'medium' | 'large' }>`
-  background-color: #fa9696;
-  border: none;
-  ${({ size }) => {
-    if (size === 'medium') {
-      return `padding: 10px 15px`;
-    } else {
-      return `padding: 15px 25px`;
-    }
-  }}
-`;
+const Button = React.forwardRef(
+  (
+    {
+      children,
+      fullWidth = false,
+      disabled = false,
+      color = 'primary',
+      size = 'medium',
+      shape = 'rect',
+      variant = 'contained',
+      onClick,
+    }: ButtonProps,
+    ref: ForwardedRef<HTMLButtonElement>
+  ) => {
+    const handleClick = useCallback(
+      (e: React.MouseEvent<HTMLButtonElement>) => {
+        if (onClick) onClick(e);
+      },
+      []
+    );
+    return (
+      <StyledButton
+        ref={ref}
+        size={size}
+        shape={shape}
+        color={color}
+        variant={variant}
+        fullWidth={fullWidth}
+        disabled={disabled}
+        onClick={handleClick}>
+        {children}
+      </StyledButton>
+    );
+  }
+);
 
 export default Button;

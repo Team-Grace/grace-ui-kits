@@ -21,5 +21,8 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off', // any 타입사용을 방지하는 옵션 끔
     '@typescript-eslint/no-unnecessary-type-constraint': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    // '@typescript-eslint/no-unused-vars': 'off',
+    'react/display-name': 'off',
   },
 };
