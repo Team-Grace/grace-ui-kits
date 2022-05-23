@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from 'src/shared/theme';
+import theme from '../../shared/theme';
 import { ButtonProps } from './Button';
 
 export type ButtonStyledProps = Omit<ButtonProps, 'children' | 'onClick'>;
