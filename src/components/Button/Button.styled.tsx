@@ -13,11 +13,6 @@ export const StyledButton = styled.button<ButtonStyledProps>`
   border-radius: ${({ shape }) => (shape === 'rect' ? '0' : '6px')};
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'max-content')};
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-  &:disabled {
-    background-color: ${theme.colors.gray[10]};
-    border: 1px solid ${theme.colors.gray[300]};
-    color: ${theme.colors.gray[300]};
   }
 
   // size
@@ -153,4 +148,10 @@ export const StyledButton = styled.button<ButtonStyledProps>`
       }
     }}
   }
+
+  // disabled
+  &:disabled {
+    background-color: ${theme.colors.gray[10]};
+    border: 1px solid ${theme.colors.gray[300]};
+    color: ${theme.colors.gray[300]};
 `;
