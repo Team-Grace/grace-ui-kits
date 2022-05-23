@@ -1,8 +1,9 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 import Button from 'src/components/Button/Button';
-import ButtonGroup from 'src/components/ButtonGroup/ButtonGroup';
-import { ButtonGroupProps } from 'src/components/ButtonGroup/ButtonGroup.inteface';
+import ButtonGroup, {
+  ButtonGroupProps,
+} from 'src/components/ButtonGroup/ButtonGroup';
 
 export default {
   title: 'components/ButtonGroup',

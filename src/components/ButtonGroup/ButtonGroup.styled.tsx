@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { ButtonGroupStyledProps } from './ButtonGroup.inteface';
+import { ButtonGroupProps } from './ButtonGroup';
+
+export type ButtonGroupStyledProps = Omit<ButtonGroupProps, 'children'>;
 
 export const StyledButtonGroup = styled.div<ButtonGroupStyledProps>`
   display: flex;

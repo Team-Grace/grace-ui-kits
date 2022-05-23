@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import theme from 'src/shared/theme';
-import { ButtonStyledProps } from './Button.interface';
+import { ButtonProps } from './Button';
+
+export type ButtonStyledProps = Omit<ButtonProps, 'children' | 'onClick'>;
 
 export const StyledButton = styled.button<ButtonStyledProps>`
   color: #fff;

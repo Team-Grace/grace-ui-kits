@@ -1,6 +1,10 @@
 import React from 'react';
-import { ButtonGroupProps } from './ButtonGroup.inteface';
 import { StyledButtonGroup } from './ButtonGroup.styled';
+
+export interface ButtonGroupProps {
+  children: React.ReactNode;
+  direction?: 'row' | 'column';
+}
 
 const ButtonGroup = ({ children, direction = 'row' }: ButtonGroupProps) => {
   return (

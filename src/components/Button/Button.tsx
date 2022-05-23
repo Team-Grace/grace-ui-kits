@@ -1,6 +1,16 @@
 import React, { useCallback, ForwardedRef } from 'react';
-import { ButtonProps } from './Button.interface';
 import { StyledButton } from './Button.styled';
+
+export interface ButtonProps {
+  children: React.ReactNode;
+  disabled?: boolean;
+  color?: 'primary' | 'secondary' | 'success' | 'error' | 'modern';
+  variant?: 'contained' | 'outlined';
+  size?: 'small' | 'medium' | 'large';
+  shape?: 'rect' | 'round';
+  fullWidth?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 
 const Button = React.forwardRef(
   (
