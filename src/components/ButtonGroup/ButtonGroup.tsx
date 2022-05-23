@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ForwardedRef } from 'react';
 import { StyledButtonGroup } from './ButtonGroup.styled';
 
 export interface ButtonGroupProps {
@@ -6,10 +6,17 @@ export interface ButtonGroupProps {
   direction?: 'row' | 'column';
 }
 
-const ButtonGroup = ({ children, direction = 'row' }: ButtonGroupProps) => {
-  return (
-    <StyledButtonGroup direction={direction}>{children}</StyledButtonGroup>
-  );
-};
+const ButtonGroup = React.forwardRef(
+  (
+    { children, direction = 'row' }: ButtonGroupProps,
+    ref: ForwardedRef<HTMLDivElement>
+  ) => {
+    return (
+      <StyledButtonGroup ref={ref} direction={direction}>
+        {children}
+      </StyledButtonGroup>
+    );
+  }
+);
 
 export default ButtonGroup;
