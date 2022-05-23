@@ -12,6 +12,7 @@ export const StyledButton = styled.button<ButtonStyledProps>`
   cursor: pointer;
   border-radius: ${({ shape }) => (shape === 'rect' ? '0' : '6px')};
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'max-content')};
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
   &:disabled {
     background-color: ${theme.colors.gray[10]};
