@@ -1,4 +1,4 @@
-import React, { useCallback, ForwardedRef } from 'react';
+import React, { useCallback, ForwardedRef, useState } from 'react';
 import { StyledButton } from './Button.styled';
 
 export interface ButtonProps {
@@ -26,15 +26,25 @@ const Button = React.forwardRef(
     }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>
   ) => {
+    const [ripple, setRipple] = useState(false);
     const handleClick = useCallback(
       (e: React.MouseEvent<HTMLButtonElement>) => {
-        if (onClick) onClick(e);
+        setRipple(true);
+
+        if (onClick) {
+          onClick(e);
+        }
+
+        setTimeout(() => {
+          setRipple(false);
+        }, 300);
       },
       []
     );
     return (
       <StyledButton
         ref={ref}
+        className={ripple ? 'active' : ''}
         size={size}
         shape={shape}
         color={color}
