@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && tsc && babel --extensions .ts,.tsx ./src -d dist --copy-files",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook",
+    "build-storybook": "rm -rf storybook-static && build-storybook",
     "deploy-storybook": "gh-pages -d storybook-static"
   },
   "repository": {
