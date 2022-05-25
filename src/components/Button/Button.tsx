@@ -36,7 +36,6 @@ const Button = React.forwardRef(
         setRipple(true);
 
         if (onClick) onClick(e);
-
         setTimeout(() => {
           setRipple(false);
         }, 300);

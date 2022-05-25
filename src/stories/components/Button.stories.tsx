@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 import Button, { ButtonProps } from 'src/components/Button/Button';
 import ButtonGroup from 'src/components/ButtonGroup/ButtonGroup';

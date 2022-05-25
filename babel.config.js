@@ -6,4 +6,5 @@ module.exports = {
     '@babel/preset-react',
   ],
   plugins: ['babel-plugin-styled-components'],
+  ignore: ['./src/stories'],
 };

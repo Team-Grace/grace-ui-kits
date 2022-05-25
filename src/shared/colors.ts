@@ -1,6 +1,16 @@
 export default {
-  white: '#ffffff',
-  black: '#000000',
+  white: {
+    default: '#ffffff',
+    hover: '#ffffff',
+    active: '#ffffff',
+    light: '#ffffff',
+  },
+  black: {
+    default: '#000000',
+    hover: '#000000',
+    active: '#000000',
+    light: '#000000',
+  },
   primary: {
     default: '#1890ff',
     hover: '#40a9ff',

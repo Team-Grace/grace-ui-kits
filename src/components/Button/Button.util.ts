@@ -1,4 +1,4 @@
-import theme from '../../shared/theme';
+import { getColorType } from '../../common/common.util';
 
 type Size = 'small' | 'medium' | 'large';
 type Color = 'primary' | 'secondary' | 'success' | 'error' | 'modern';
@@ -20,21 +20,6 @@ export const getButtonSizeStyle = (size: Size) => {
       padding: 8px 22px;
       font-size: 1rem;
     `;
-  }
-};
-
-export const getColorType = (color: Color) => {
-  switch (color) {
-    case 'primary':
-      return theme.colors.primary;
-    case 'secondary':
-      return theme.colors.secondary;
-    case 'success':
-      return theme.colors.success;
-    case 'error':
-      return theme.colors.error;
-    default:
-      return theme.colors.modern;
   }
 };
 

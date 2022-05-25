@@ -8,7 +8,7 @@ import ButtonGroup, {
 export default {
   title: 'components/ButtonGroup',
   argTypes: {
-    distance: {
+    gap: {
       options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       control: { type: 'select' },
     },
@@ -16,7 +16,7 @@ export default {
       options: ['row', 'column'],
       control: { type: 'select' },
     },
-    position: {
+    align: {
       options: ['start', 'center', 'end'],
       control: { type: 'select' },
     },
@@ -25,8 +25,8 @@ export default {
 
 const Template: Story<ButtonGroupProps> = ({
   direction,
-  distance,
-  position,
+  gap,
+  align,
 }: ButtonGroupProps) => {
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log(e.target);
@@ -34,11 +34,7 @@ const Template: Story<ButtonGroupProps> = ({
 
   return (
     <>
-      <ButtonGroup
-        space={[30, 0, 30, 0]}
-        position={position}
-        distance={distance}
-        direction={direction}>
+      <ButtonGroup align={align} gap={gap} direction={direction}>
         <Button color="primary" size={'small'} onClick={onClick}>
           SMALL
         </Button>
@@ -51,10 +47,7 @@ const Template: Story<ButtonGroupProps> = ({
       </ButtonGroup>
       <hr />
       <h1>width 100%</h1>
-      <ButtonGroup
-        position={position}
-        distance={distance}
-        direction={direction}>
+      <ButtonGroup align={align} gap={gap} direction={direction}>
         <Button
           color="primary"
           fullWidth={true}
@@ -82,12 +75,12 @@ export const Column = Template.bind({});
 
 Row.args = {
   direction: 'row',
-  distance: 3,
-  position: 'start',
+  gap: 3,
+  align: 'start',
 };
 
 Column.args = {
   direction: 'column',
-  distance: 3,
-  position: 'start',
+  gap: 3,
+  align: 'start',
 };

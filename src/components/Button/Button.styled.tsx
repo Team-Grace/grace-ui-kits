@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import theme from '../../shared/theme';
+import { getColorType } from '../../common/common.util';
 import { ButtonProps } from './Button';
 import {
   getButtonSizeStyle,
   getVariantStyle,
   getVarianHoverStyle,
-  getColorType,
 } from './Button.util';
 
 export type ButtonStyledProps = Omit<ButtonProps, 'children' | 'onClick'>;

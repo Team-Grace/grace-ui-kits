@@ -1,24 +1,24 @@
 import styled from 'styled-components';
 import { ButtonGroupProps } from './ButtonGroup';
-import { getJustifyContentStyle, getAlignItemsStyle } from './ButtonGroup.util';
+import { getFlexItemAlignStyle } from '../../common/common.util';
 
-export type ButtonGroupStyledProps = Omit<ButtonGroupProps, 'children'>;
+export type ButtonGroupStyledProps = Omit<ButtonGroupProps, 'children' | 'ref'>;
 
 export const StyledButtonGroup = styled.div<ButtonGroupStyledProps>`
   display: flex;
   flex-wrap: wrap;
   flex-direction: ${({ direction }) =>
     direction === 'row' ? 'row' : 'column'};
-  gap: ${({ distance }) => distance && `${distance * 5}px`};
-  margin: ${({ space }) =>
-    space && `${space[0]}px ${space[1]}px ${space[2]}px ${space[3]}px`};
+  gap: ${({ gap }) => gap && `${gap * 5}px`};
+  margin: ${({ mt, mr, mb, ml }) => `${mt}px ${mr}px ${mb}px ${ml}px`};
+  padding: ${({ pt, pr, pb, pl }) => `${pt}px ${pr}px ${pb}px ${pl}px`};
 
-  ${({ position, direction }) => {
-    if (position) {
+  ${({ align, direction }) => {
+    if (align) {
       if (direction === 'row') {
-        return getJustifyContentStyle(position);
+        return `justify-content: ${getFlexItemAlignStyle(align)}`;
       }
-      return getAlignItemsStyle(position);
+      return `align-items: ${getFlexItemAlignStyle(align)}`;
     }
   }};
 `;
