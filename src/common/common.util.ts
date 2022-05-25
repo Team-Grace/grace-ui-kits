@@ -1,4 +1,4 @@
-import theme from 'src/shared/theme';
+import theme from '../shared/theme';
 import { Align, Color } from './common.types';
 
 export const getColorType = (color: Color) => {
