@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Story } from '@storybook/react/types-6-0';
 import Button, { ButtonProps } from 'src/components/Button/Button';
 import ButtonGroup from 'src/components/ButtonGroup/ButtonGroup';
@@ -99,6 +99,7 @@ Small.args = {
   fullWidth: false,
   size: 'small',
   shape: 'rect',
+  variant: 'contained',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };
 
@@ -107,6 +108,7 @@ Medium.args = {
   fullWidth: false,
   size: 'medium',
   shape: 'rect',
+  variant: 'contained',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };
 
@@ -115,6 +117,7 @@ Large.args = {
   fullWidth: false,
   size: 'large',
   shape: 'rect',
+  variant: 'contained',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };
 
@@ -123,5 +126,6 @@ FullWidth.args = {
   fullWidth: true,
   size: 'medium',
   shape: 'rect',
+  variant: 'contained',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };

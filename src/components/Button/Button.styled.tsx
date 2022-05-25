@@ -46,7 +46,12 @@ export const StyledButton = styled.button<ButtonStyledProps>`
     height: 300px;
     top: 50%;
     left: 50%;
-    background-color: ${({ color }) => color && getColorType(color).light};
+    background-color: ${({ color, variant }) => {
+      if (color) {
+        if (variant === 'contained') return getColorType(color).light;
+        return getColorType(color).hover;
+      }
+    }};
     transform: translate(-50%, -50%);
     animation: sizeUp 0.4s;
   }
@@ -56,17 +61,17 @@ export const StyledButton = styled.button<ButtonStyledProps>`
     background-color: ${theme.colors.gray[10]};
     border: 1px solid ${theme.colors.gray[300]};
     color: ${theme.colors.gray[300]};
+  }
 
-    @keyframes sizeUp {
-      from {
-        width: 0;
-        opacity: 0.3;
-      }
+  @keyframes sizeUp {
+    from {
+      width: 0;
+      opacity: 0.3;
+    }
 
-      to {
-        width: 200%;
-        opacity: 0.1;
-      }
+    to {
+      width: 150%;
+      opacity: 0.1;
     }
   }
 `;

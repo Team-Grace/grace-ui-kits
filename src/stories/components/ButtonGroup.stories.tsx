@@ -35,6 +35,7 @@ const Template: Story<ButtonGroupProps> = ({
   return (
     <>
       <ButtonGroup
+        space={[30, 0, 30, 0]}
         position={position}
         distance={distance}
         direction={direction}>

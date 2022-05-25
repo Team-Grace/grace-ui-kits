@@ -1,15 +1,19 @@
-import React, { useCallback, ForwardedRef, useState } from 'react';
+import React, {
+  ComponentProps,
+  useCallback,
+  ForwardedRef,
+  useState,
+} from 'react';
 import { StyledButton } from './Button.styled';
 
-export interface ButtonProps {
-  children: React.ReactNode;
-  disabled?: boolean;
+export interface ButtonProps
+  extends Omit<ComponentProps<'button'>, 'ref' | 'children'> {
+  children: React.ReactNode | string;
   color?: 'primary' | 'secondary' | 'success' | 'error' | 'modern';
   variant?: 'contained' | 'outlined';
   size?: 'small' | 'medium' | 'large';
   shape?: 'rect' | 'round';
   fullWidth?: boolean;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button = React.forwardRef(
@@ -17,12 +21,12 @@ const Button = React.forwardRef(
     {
       children,
       fullWidth = false,
-      disabled = false,
       color = 'primary',
       size = 'medium',
       shape = 'rect',
       variant = 'contained',
       onClick,
+      ...rest
     }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>
   ) => {
@@ -31,9 +35,7 @@ const Button = React.forwardRef(
       (e: React.MouseEvent<HTMLButtonElement>) => {
         setRipple(true);
 
-        if (onClick) {
-          onClick(e);
-        }
+        if (onClick) onClick(e);
 
         setTimeout(() => {
           setRipple(false);
@@ -50,8 +52,8 @@ const Button = React.forwardRef(
         color={color}
         variant={variant}
         fullWidth={fullWidth}
-        disabled={disabled}
-        onClick={handleClick}>
+        onClick={handleClick}
+        {...rest}>
         {children}
       </StyledButton>
     );

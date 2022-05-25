@@ -10,6 +10,8 @@ export const StyledButtonGroup = styled.div<ButtonGroupStyledProps>`
   flex-direction: ${({ direction }) =>
     direction === 'row' ? 'row' : 'column'};
   gap: ${({ distance }) => distance && `${distance * 5}px`};
+  margin: ${({ space }) =>
+    space && `${space[0]}px ${space[1]}px ${space[2]}px ${space[3]}px`};
 
   ${({ position, direction }) => {
     if (position) {
@@ -18,5 +20,5 @@ export const StyledButtonGroup = styled.div<ButtonGroupStyledProps>`
       }
       return getAlignItemsStyle(position);
     }
-  }}
+  }};
 `;
