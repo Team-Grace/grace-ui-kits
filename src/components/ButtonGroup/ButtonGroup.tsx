@@ -1,5 +1,5 @@
 import React, { ForwardedRef, ComponentProps } from 'react';
-import { Space } from 'src/common/common.types';
+import { Space } from '../../common/common.types';
 import { StyledButtonGroup } from './ButtonGroup.styled';
 
 export interface ButtonGroupProps

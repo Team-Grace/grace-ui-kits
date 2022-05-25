@@ -1,5 +1,5 @@
 import React, { ComponentProps, ForwardedRef } from 'react';
-import { Space } from 'src/common/common.types';
+import { Space } from '../../common/common.types';
 import {
   StyledH1,
   StyledH2,
