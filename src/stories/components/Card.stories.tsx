@@ -27,6 +27,19 @@ const Template: Story<CardProps> = () => {
         <p> extra=More</p>
         <p> width=300</p>
       </Card>
+      <Card
+        title="카드입니다."
+        extra="More"
+        width={600}
+        mb={20}
+        onExtra={(e) => alert(e.target)}>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores harum
+          quo aut atque modi earum obcaecati, quisquam neque sed, dolores nam
+          rem adipisci reprehenderit quos cum dolorum molestiae optio
+          voluptatem.
+        </p>
+      </Card>
 
       <hr />
 
