@@ -30,3 +30,6 @@ babel.config.js
 stories
 .storybook
 storybook-static
+
+# assets
+assets
