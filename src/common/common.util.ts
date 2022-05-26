@@ -1,6 +1,16 @@
 import theme from '../shared/theme';
 import { Align, Color } from './common.types';
 
+export const resetStyle = () => {
+  return `
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  `;
+};
+
 export const getColorType = (color: Color) => {
   switch (color) {
     case 'primary':

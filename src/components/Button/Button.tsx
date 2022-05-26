@@ -40,7 +40,7 @@ const Button = React.forwardRef(
           setRipple(false);
         }, 300);
       },
-      []
+      [onClick]
     );
     return (
       <StyledButton

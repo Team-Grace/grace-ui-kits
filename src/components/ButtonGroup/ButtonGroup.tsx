@@ -30,16 +30,7 @@ const ButtonGroup = React.forwardRef(
     }: ButtonGroupProps,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
-    const space = {
-      pt,
-      pr,
-      pb,
-      pl,
-      mt,
-      mr,
-      mb,
-      ml,
-    };
+    const space = { pt, pr, pb, pl, mt, mr, mb, ml };
 
     return (
       <StyledButtonGroup

@@ -16,4 +16,5 @@ export type Color =
   | 'success'
   | 'error'
   | 'modern'
+  | 'gray'
   | undefined;

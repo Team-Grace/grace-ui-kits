@@ -100,7 +100,7 @@ Small.args = {
   size: 'small',
   shape: 'rect',
   variant: 'contained',
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
 };
 
 Medium.args = {
@@ -109,7 +109,7 @@ Medium.args = {
   size: 'medium',
   shape: 'rect',
   variant: 'contained',
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
 };
 
 Large.args = {
@@ -118,7 +118,7 @@ Large.args = {
   size: 'large',
   shape: 'rect',
   variant: 'contained',
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
 };
 
 FullWidth.args = {
@@ -127,5 +127,5 @@ FullWidth.args = {
   size: 'medium',
   shape: 'rect',
   variant: 'contained',
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
 };
