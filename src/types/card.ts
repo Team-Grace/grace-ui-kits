@@ -1,8 +1,4 @@
-import {
-  ComponentProps,
-  ForwardRefExoticComponent,
-  RefAttributes,
-} from 'react';
+import { ComponentProps } from 'react';
 import { Space } from './common';
 
 export interface CardProps
@@ -17,8 +13,10 @@ export interface CardProps
   onExtra?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export type CardCompound = ForwardRefExoticComponent<
-  CardProps & RefAttributes<HTMLDivElement>
+export type CardAddonProps = Pick<
+  CardProps,
+  'children' | 'extra' | 'type' | 'onExtra'
 >;
 
+export type CardContentProps = Pick<CardProps, 'children'>;
 export type CardStyledProps = Omit<CardProps, 'children' | 'ref'>;

@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 import theme from '../../shared/theme';
-import { resetStyle } from '../../utils/common';
 import { CardStyledProps } from '../../types/card';
 
 export const StyledCard = styled.div<CardStyledProps>`
-  ${resetStyle()}
-
   width: ${({ width }) => (width ? `${width}px` : `100%`)};
   border: 1px solid ${theme.colors.gray[100]};
   margin: ${({ mt, mr, mb, ml }) => `${mt}px ${mr}px ${mb}px ${ml}px`};
@@ -15,11 +12,11 @@ export const StyledCard = styled.div<CardStyledProps>`
   & > div {
     ${({ size }) => {
       if (size === 'small') {
-        return `padding: 10px;`;
+        return `padding: 8px;`;
       } else if (size === 'medium') {
-        return `padding: 15px;`;
+        return `padding: 12px;`;
       }
-      return `padding: 20px;`;
+      return `padding: 16px;`;
     }}
   }
 
@@ -41,7 +38,7 @@ export const StyledCardTitleContainer = styled.div<CardStyledProps>`
   justify-content: space-between;
   align-items: center;
 
-  button {
+  & > button {
     cursor: pointer;
     font-size: 0.875rem;
     background-color: transparent;

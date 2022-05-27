@@ -5,6 +5,7 @@ import { getFlexItemAlignStyle } from '../../utils/common';
 export type ButtonGroupStyledProps = Omit<ButtonGroupProps, 'children' | 'ref'>;
 
 export const StyledButtonGroup = styled.div<ButtonGroupStyledProps>`
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: ${({ direction }) =>
