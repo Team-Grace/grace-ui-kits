@@ -1,29 +1,12 @@
-import React, {
-  ComponentProps,
-  ForwardedRef,
-  useCallback,
-  useMemo,
-} from 'react';
-import { Space } from '../../common/common.types';
+import React, { useCallback, useMemo } from 'react';
+import { CardCompound } from '../../types/card';
 import {
   StyledCard,
   StyledCardTitleContainer,
   StyledCardContentContainer,
 } from './Card.styled';
 
-export interface CardProps
-  extends Omit<ComponentProps<'div'>, 'ref' | 'children' | 'title'>,
-    Space {
-  children: React.ReactNode;
-  size?: 'small' | 'medium' | 'large';
-  type?: 'contained' | 'outlined';
-  width?: number;
-  title?: string;
-  extra?: string | React.ReactNode;
-  onExtra?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
-
-const Card = React.forwardRef(
+const Card: CardCompound = React.forwardRef(
   (
     {
       children,
@@ -42,24 +25,12 @@ const Card = React.forwardRef(
       pl = 0,
       onExtra,
       ...rest
-    }: CardProps,
-    ref: ForwardedRef<HTMLDivElement>
+    },
+    ref
   ) => {
     const space = { pt, pr, pb, pl, mt, mr, mb, ml };
 
-    const handleExtra = useCallback(
-      (e: React.MouseEvent<HTMLButtonElement>) => {
-        if (extra && onExtra) onExtra(e);
-      },
-      [extra, onExtra]
-    );
-
-    const renderTitle = useMemo(() => {
-      if (size === 'small') return <h5>{title}</h5>;
-      if (size === 'medium') return <h4>{title}</h4>;
-      if (size === 'large') return <h3>{title}</h3>;
-    }, [size, title]);
-
+    if (!Card.Content || !Card.Title) return <></>;
     return (
       <StyledCard
         ref={ref}
@@ -69,15 +40,44 @@ const Card = React.forwardRef(
         {...space}
         {...rest}>
         {title && (
-          <StyledCardTitleContainer type={type}>
-            {renderTitle}
-            {extra && <button onClick={handleExtra}>{extra}</button>}
-          </StyledCardTitleContainer>
+          <Card.Title
+            size={size}
+            type={type}
+            title={title}
+            extra={extra}
+            onExtra={onExtra}
+          />
         )}
-        <StyledCardContentContainer>{children}</StyledCardContentContainer>
+        <Card.Content>{children}</Card.Content>
       </StyledCard>
     );
   }
 );
+
+Card.Title = ({ size, type, title, extra, onExtra }) => {
+  const handleExtra = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      if (extra && onExtra) onExtra(e);
+    },
+    [extra, onExtra]
+  );
+
+  const renderTitle = useMemo(() => {
+    if (size === 'small') return <h5>{title}</h5>;
+    if (size === 'medium') return <h4>{title}</h4>;
+    if (size === 'large') return <h3>{title}</h3>;
+  }, [size, title]);
+
+  return (
+    <StyledCardTitleContainer type={type}>
+      {renderTitle}
+      {extra && <button onClick={handleExtra}>{extra}</button>}
+    </StyledCardTitleContainer>
+  );
+};
+
+Card.Content = ({ children }) => {
+  return <StyledCardContentContainer>{children}</StyledCardContentContainer>;
+};
 
 export default Card;

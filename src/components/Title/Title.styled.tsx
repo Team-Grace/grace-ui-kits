@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { TitleProps } from './Title';
-import { getColorType, getTextAlignStyle } from '../../common/common.util';
+import { TitleProps } from '../../types/title';
+import { getColorType, getTextAlignStyle } from '../../utils/common';
 
 export type TitleStyledProps = Omit<TitleProps, 'children' | 'ref'>;
 

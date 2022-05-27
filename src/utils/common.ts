@@ -1,5 +1,5 @@
 import theme from '../shared/theme';
-import { Align, Color } from './common.types';
+import { Align, Color } from '../types/common';
 
 export const resetStyle = () => {
   return `

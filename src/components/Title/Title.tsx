@@ -1,5 +1,5 @@
-import React, { ComponentProps, ForwardedRef } from 'react';
-import { Space } from '../../common/common.types';
+import React, { ForwardedRef } from 'react';
+import { TitleProps } from '../../types/title';
 import {
   StyledH1,
   StyledH2,
@@ -8,14 +8,6 @@ import {
   StyledH5,
 } from './Title.styled';
 
-export interface TitleProps
-  extends Omit<ComponentProps<'h1'>, 'ref' | 'children'>,
-    Space {
-  children: React.ReactNode | string;
-  level?: number;
-  color?: 'primary' | 'secondary' | 'success' | 'error' | 'modern';
-  align?: 'start' | 'center' | 'end';
-}
 const Title = React.forwardRef(
   (
     {

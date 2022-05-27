@@ -1,15 +1,6 @@
-import React, { ForwardedRef, ComponentProps } from 'react';
-import { Space } from '../../common/common.types';
+import React, { ForwardedRef } from 'react';
+import { ButtonGroupProps } from '../../types/button';
 import { StyledButtonGroup } from './ButtonGroup.styled';
-
-export interface ButtonGroupProps
-  extends Omit<ComponentProps<'div'>, 'ref'>,
-    Space {
-  children: React.ReactNode;
-  direction?: 'row' | 'column';
-  align?: 'start' | 'center' | 'end';
-  gap?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
-}
 
 const ButtonGroup = React.forwardRef(
   (

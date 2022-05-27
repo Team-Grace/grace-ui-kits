@@ -1,9 +1,7 @@
-import theme from '../../shared/theme';
 import styled from 'styled-components';
-import { resetStyle } from '../../common/common.util';
-import { CardProps } from './Card';
-
-export type CardStyledProps = Omit<CardProps, 'children' | 'ref'>;
+import theme from '../../shared/theme';
+import { resetStyle } from '../../utils/common';
+import { CardStyledProps } from '../../types/card';
 
 export const StyledCard = styled.div<CardStyledProps>`
   ${resetStyle()}

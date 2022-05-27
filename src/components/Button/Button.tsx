@@ -1,20 +1,6 @@
-import React, {
-  ComponentProps,
-  useCallback,
-  ForwardedRef,
-  useState,
-} from 'react';
+import React, { useCallback, ForwardedRef, useState } from 'react';
+import { ButtonProps } from '../../types/button';
 import { StyledButton } from './Button.styled';
-
-export interface ButtonProps
-  extends Omit<ComponentProps<'button'>, 'ref' | 'children'> {
-  children: React.ReactNode | string;
-  color?: 'primary' | 'secondary' | 'success' | 'error' | 'modern';
-  variant?: 'contained' | 'outlined';
-  size?: 'small' | 'medium' | 'large';
-  shape?: 'rect' | 'round';
-  fullWidth?: boolean;
-}
 
 const Button = React.forwardRef(
   (
