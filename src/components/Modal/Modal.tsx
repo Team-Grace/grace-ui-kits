@@ -1,0 +1,132 @@
+import React, { useCallback, useContext, useEffect, useMemo } from 'react';
+import Button from '../Button/Button';
+import ButtonGroup from '../ButtonGroup/ButtonGroup';
+import Title from '../Title/Title';
+import { Dimmend } from '../Common/Common.styled';
+import {
+  ModalProps,
+  ModalPickChildren,
+  ModalContextProps,
+} from '../../types/modal';
+import {
+  StyledModal,
+  ModalHeaderContainer,
+  ModalContentContainer,
+  ModalButtonContainer,
+} from './Modal.styled';
+
+const modalContext = React.createContext<ModalContextProps | undefined>(
+  undefined
+);
+
+const ModalHeader = ({ children }: ModalPickChildren) => {
+  const { color, onClose } = useContext(modalContext) as ModalContextProps;
+  return (
+    <ModalHeaderContainer color={color}>
+      <Title level={4}>{children}</Title>
+      <button onClick={onClose}>X</button>
+    </ModalHeaderContainer>
+  );
+};
+
+const ModalContent = ({ children }: ModalPickChildren) => {
+  return <ModalContentContainer>{children}</ModalContentContainer>;
+};
+
+const ModalFooter = () => {
+  const { color, buttonType, onClose, onConfirm } = useContext(
+    modalContext
+  ) as ModalContextProps;
+
+  return (
+    <ModalButtonContainer>
+      {buttonType === 'single' ? (
+        <Button color={color} size="large" onClick={onConfirm} fullWidth>
+          확인
+        </Button>
+      ) : (
+        <ButtonGroup direction="row" gap={0}>
+          <Button color={color} size="large" onClick={onConfirm} fullWidth>
+            확인
+          </Button>
+          <Button
+            color={color}
+            size="large"
+            variant="outlined"
+            onClick={onClose}
+            fullWidth>
+            취소
+          </Button>
+        </ButtonGroup>
+      )}
+    </ModalButtonContainer>
+  );
+};
+
+const Modal = Object.assign(
+  ({
+    children,
+    title = '',
+    buttonType = 'single',
+    shape = 'rect',
+    color = 'primary',
+    isOpen = false,
+    onClose,
+    onConfirm,
+  }: ModalProps) => {
+    const handleClose = useCallback(
+      (e?: React.MouseEvent<HTMLButtonElement>) => {
+        if (onClose) onClose(e);
+      },
+      [onClose]
+    );
+
+    const handleConfirm = useCallback(
+      (e?: React.MouseEvent<HTMLButtonElement>) => {
+        if (onConfirm) onConfirm(e);
+      },
+      [onConfirm]
+    );
+
+    const providerValue = useMemo(() => {
+      return {
+        color,
+        buttonType,
+        onClose: handleClose,
+        onConfirm: handleConfirm,
+      };
+    }, [color, buttonType, handleClose, handleConfirm]);
+
+    useEffect(() => {
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    }, [isOpen]);
+
+    return (
+      <>
+        {isOpen && (
+          <Dimmend>
+            <modalContext.Provider value={providerValue}>
+              <StyledModal shape={shape}>
+                {title && <Modal.Header>{title}</Modal.Header>}
+                <Modal.Content>{children}</Modal.Content>
+                <Modal.Footer />
+              </StyledModal>
+            </modalContext.Provider>
+          </Dimmend>
+        )}
+      </>
+    );
+  },
+
+  {
+    Header: ModalHeader,
+    Content: ModalContent,
+    Footer: ModalFooter,
+  }
+);
+
+export default Modal;

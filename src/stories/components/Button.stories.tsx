@@ -7,6 +7,10 @@ import ButtonGroup from 'src/components/ButtonGroup/ButtonGroup';
 export default {
   title: 'components/Button',
   argTypes: {
+    color: {
+      options: ['primary', 'secondary', 'success', 'error', 'modern'],
+      control: { type: 'select' },
+    },
     size: {
       options: ['small', 'medium', 'large'],
       control: { type: 'select' },
@@ -26,107 +30,84 @@ const Template: Story<ButtonProps> = ({
   children,
   fullWidth,
   size,
+  color,
   shape,
-  variant,
+  disabled,
   onClick,
 }: ButtonProps) => {
   return (
     <ButtonGroup direction="column">
       <Button
-        color="primary"
+        disabled={disabled}
+        color={color}
         shape={shape}
         size={size}
-        variant={variant}
+        variant={'contained'}
         fullWidth={fullWidth}
         onClick={onClick}>
-        {children} (primary)
+        {children}
       </Button>
+
       <Button
-        color="secondary"
+        disabled={disabled}
+        color={color}
         shape={shape}
         size={size}
-        variant={variant}
+        variant={'outlined'}
         fullWidth={fullWidth}
         onClick={onClick}>
-        {children} (secondary)
-      </Button>
-      <Button
-        color="modern"
-        shape={shape}
-        size={size}
-        variant={variant}
-        fullWidth={fullWidth}
-        onClick={onClick}>
-        {children} (modern)
-      </Button>
-      <Button
-        color="success"
-        shape={shape}
-        size={size}
-        variant={variant}
-        fullWidth={fullWidth}
-        onClick={onClick}>
-        {children} (success)
-      </Button>
-      <Button
-        color="error"
-        shape={shape}
-        size={size}
-        variant={variant}
-        fullWidth={fullWidth}
-        onClick={onClick}>
-        {children} (error)
-      </Button>
-      <Button
-        disabled={true}
-        shape={shape}
-        size={size}
-        variant={variant}
-        fullWidth={fullWidth}
-        onClick={onClick}>
-        {children} (Disabled)
+        {children}
       </Button>
     </ButtonGroup>
   );
 };
 
-export const Small = Template.bind({});
-export const Medium = Template.bind({});
-export const Large = Template.bind({});
-export const FullWidth = Template.bind({});
+export const Primary = Template.bind({});
+export const Secondary = Template.bind({});
+export const Success = Template.bind({});
+export const Error = Template.bind({});
+export const Modern = Template.bind({});
 
-Small.args = {
-  children: 'Button Small',
-  fullWidth: false,
-  size: 'small',
-  shape: 'rect',
-  variant: 'contained',
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
-};
-
-Medium.args = {
-  children: 'Button Medium',
+Primary.args = {
+  children: 'Button Primary',
   fullWidth: false,
   size: 'medium',
   shape: 'rect',
-  variant: 'contained',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
 };
 
-Large.args = {
-  children: 'Button Large',
+Secondary.args = {
+  children: 'Button Secondat',
   fullWidth: false,
-  size: 'large',
-  shape: 'rect',
-  variant: 'contained',
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
-};
-
-FullWidth.args = {
-  children: 'Button Full Width (Size: Medium)',
-  fullWidth: true,
+  color: 'secondary',
   size: 'medium',
   shape: 'rect',
-  variant: 'contained',
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
+};
+
+Success.args = {
+  children: 'Button Success',
+  fullWidth: false,
+  size: 'medium',
+  color: 'success',
+  shape: 'rect',
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
+};
+
+Error.args = {
+  children: 'Button Error',
+  fullWidth: false,
+  size: 'medium',
+  color: 'error',
+  shape: 'rect',
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
+};
+
+Modern.args = {
+  children: 'Button Modern',
+  fullWidth: false,
+  size: 'medium',
+  color: 'modern',
+  shape: 'rect',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
 };

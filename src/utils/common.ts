@@ -1,14 +1,21 @@
+import { TitleProps } from '../types/title';
 import theme from '../shared/theme';
 import { Align, Color } from '../types/common';
 
-export const resetStyle = () => {
-  return `
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-  `;
+export const resetStyle = (type: string) => {
+  switch (type) {
+    case 'button':
+      return `
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        background-color: #fff;
+        cursor: pointer;
+      `;
+    default:
+      return '';
+  }
 };
 
 export const getColorType = (color: Color) => {
@@ -44,4 +51,16 @@ export const getTextAlignStyle = (align: Align) => {
     return `center;`;
   }
   return `end;`;
+};
+
+export const getTextStyle = (props: TitleProps) => {
+  const { mt, mr, mb, ml, pt, pr, pb, pl, color, align } = props;
+
+  return `
+    width: 100%;
+    margin: ${mt}px ${mr}px ${mb}px ${ml}px;
+    padding: ${pt}px ${pr}px ${pb}px ${pl}px;
+    color: ${color && getColorType(color).default};
+    text-align: ${align && getTextAlignStyle(align)};
+  `;
 };

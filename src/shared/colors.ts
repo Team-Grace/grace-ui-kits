@@ -27,13 +27,13 @@ export default {
     default: '#ff4d4f',
     hover: '#ff7875',
     active: '#d9363e',
-    light: '#fcdad7',
+    light: '#fadedc',
   },
   modern: {
     default: '#3C3025',
     hover: '#4b3d31',
     active: '#30261d',
-    light: '#decdbf',
+    light: 'rgba(222, 205, 191, 0.6)',
   },
   success: {
     default: '#52c41a',

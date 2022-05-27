@@ -7,7 +7,7 @@ export interface ButtonGroupProps
   children: React.ReactNode;
   direction?: 'row' | 'column';
   align?: 'start' | 'center' | 'end';
-  gap?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 }
 
 export interface ButtonProps
