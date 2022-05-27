@@ -5,75 +5,94 @@ import { CardProps } from 'src/types/card';
 
 export default {
   title: 'components/Card',
-  argTypes: {},
+  argTypes: {
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'select' },
+    },
+    type: {
+      options: ['contained', 'outlined'],
+      control: { type: 'select' },
+    },
+  },
 };
 
-const Template: Story<CardProps> = () => {
+const Template: Story<CardProps> = ({ size, extra, type, onExtra }) => {
   return (
     <>
-      <h2>Extra</h2>
-      <Card
-        title="카드입니다."
-        extra="More"
-        mb={20}
-        onExtra={() => alert('hi')}>
-        <p> extra=More</p>
+      <h2>Card No Title</h2>
+      <Card mb={20} type={type}>
+        <Card.Content>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
+            aperiam? Ea, ullam? Eos nesciunt magnam eum tenetur illo? Similique
+            fuga ut quaerat itaque harum exercitationem in excepturi illum,
+            repudiandae incidunt.
+          </p>
+        </Card.Content>
       </Card>
-      <Card
-        title="카드입니다."
-        extra="More"
-        width={300}
-        mb={20}
-        onExtra={(e) => alert(e.target)}>
-        <p> extra=More</p>
-        <p> width=300</p>
-      </Card>
-      <Card
-        title="카드입니다."
-        extra="More"
-        width={600}
-        mb={20}
-        onExtra={(e) => alert(e.target)}>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores harum
-          quo aut atque modi earum obcaecati, quisquam neque sed, dolores nam
-          rem adipisci reprehenderit quos cum dolorum molestiae optio
-          voluptatem.
-        </p>
+      <hr />
+      <h2>Card width=100%</h2>
+      <Card mb={20} size={size} type={type}>
+        <Card.Addon extra={extra} onExtra={onExtra}>
+          This is Addon (Header)
+        </Card.Addon>
+        <Card.Content>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
+            aperiam? Ea, ullam? Eos nesciunt magnam eum tenetur illo? Similique
+            fuga ut quaerat itaque harum exercitationem in excepturi illum,
+            repudiandae incidunt.
+          </p>
+        </Card.Content>
+        <Card.Addon>This is Addon (Middle)</Card.Addon>
+        <Card.Content>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
+            aperiam? Ea, ullam? Eos nesciunt magnam eum tenetur illo? Similique
+            fuga ut quaerat itaque harum exercitationem in excepturi illum,
+            repudiandae incidunt.
+          </p>
+        </Card.Content>
+        <Card.Addon extra={extra} onExtra={onExtra}>
+          This is Addon (Footer)
+        </Card.Addon>
       </Card>
 
       <hr />
 
-      <h2>Size</h2>
-      <Card title="카드입니다." mb={20} size="large">
-        <p> size=large</p>
-      </Card>
-      <Card title="카드입니다." mb={20} size="medium">
-        <p> size=medium</p>
-      </Card>
-      <Card title="카드입니다." mb={20} size="small">
-        <p> size=small</p>
-      </Card>
-
-      <hr />
-
-      <h2>No Title</h2>
-      <Card mb={20}>
-        <p>타이틀 없는 카드입니다.</p>
-      </Card>
-
-      <hr />
-
-      <h2>Type</h2>
-      <Card title="카드입니다." extra={'More'} type="contained" mb={20}>
-        <p> type=contained</p>
+      <h2>Card width=500</h2>
+      <Card mb={20} size={size} width={500} type={type}>
+        <Card.Addon extra={extra} onExtra={onExtra}>
+          This is Card This is Card This is Card
+        </Card.Addon>
+        <Card.Content>
+          <p>Hi</p>
+          <p>Grace Ui kits</p>
+          <p>with React</p>
+        </Card.Content>
       </Card>
     </>
   );
 };
 
 export const Default = Template.bind({});
+export const Extra = Template.bind({});
+export const Contained = Template.bind({});
 
 Default.args = {
+  size: 'medium',
+};
+
+Extra.args = {
+  size: 'medium',
+  extra: 'More',
+  onExtra: () => alert('hi'),
+};
+
+Contained.args = {
+  size: 'medium',
+  type: 'contained',
+  extra: 'More',
   onExtra: () => alert('hi'),
 };

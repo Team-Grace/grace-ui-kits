@@ -22,13 +22,24 @@ export const StyledCard = styled.div<CardStyledProps>`
       return `padding: 20px;`;
     }}
   }
+
+  & > div:first-of-type {
+    border-top: none;
+  }
+
+  & > div:last-of-type {
+    border-bottom: none;
+  }
+
+  & > div:not(last-of-type, first-of-type) {
+    border-bottom: 1px solid ${theme.colors.gray[100]};
+  }
 `;
 
 export const StyledCardTitleContainer = styled.div<CardStyledProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid ${theme.colors.gray[100]};
 
   button {
     cursor: pointer;
@@ -36,6 +47,7 @@ export const StyledCardTitleContainer = styled.div<CardStyledProps>`
     background-color: transparent;
     border: none;
     color: ${theme.colors.primary.default};
+    margin-left: 12px;
 
     &:hover {
       color: ${theme.colors.primary.active};

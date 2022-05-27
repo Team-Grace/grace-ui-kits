@@ -1,18 +1,20 @@
-import React, { useCallback, useMemo } from 'react';
-import { CardCompound } from '../../types/card';
+import React, { ForwardedRef, useCallback, useContext, useMemo } from 'react';
+import { CardProps } from '../../types/card';
 import {
   StyledCard,
   StyledCardTitleContainer,
   StyledCardContentContainer,
 } from './Card.styled';
 
-const Card: CardCompound = React.forwardRef(
+const CardContext = React.createContext<
+  Omit<CardProps, 'children'> | undefined
+>(undefined);
+
+const Card: any = React.forwardRef(
   (
     {
       children,
       size = 'medium',
-      title = '',
-      extra = '',
       type = 'outlined',
       width,
       mt = 0,
@@ -23,38 +25,28 @@ const Card: CardCompound = React.forwardRef(
       pr = 0,
       pb = 0,
       pl = 0,
-      onExtra,
       ...rest
-    },
-    ref
-  ) => {
+    }: CardProps,
+    ref: ForwardedRef<HTMLDivElement>
+  ): JSX.Element => {
     const space = { pt, pr, pb, pl, mt, mr, mb, ml };
 
-    if (!Card.Content || !Card.Title) return <></>;
     return (
-      <StyledCard
-        ref={ref}
-        size={size}
-        width={width}
-        title={title}
-        {...space}
-        {...rest}>
-        {title && (
-          <Card.Title
-            size={size}
-            type={type}
-            title={title}
-            extra={extra}
-            onExtra={onExtra}
-          />
-        )}
-        <Card.Content>{children}</Card.Content>
-      </StyledCard>
+      <CardContext.Provider value={{ size, type }}>
+        <StyledCard ref={ref} size={size} width={width} {...space} {...rest}>
+          {children}
+        </StyledCard>
+      </CardContext.Provider>
     );
   }
 );
 
-Card.Title = ({ size, type, title, extra, onExtra }) => {
+Card.Addon = ({ children, extra, onExtra }: CardProps) => {
+  const { size, type } = useContext(CardContext) as Pick<
+    CardProps,
+    'size' | 'type'
+  >;
+
   const handleExtra = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       if (extra && onExtra) onExtra(e);
@@ -63,10 +55,10 @@ Card.Title = ({ size, type, title, extra, onExtra }) => {
   );
 
   const renderTitle = useMemo(() => {
-    if (size === 'small') return <h5>{title}</h5>;
-    if (size === 'medium') return <h4>{title}</h4>;
-    if (size === 'large') return <h3>{title}</h3>;
-  }, [size, title]);
+    if (size === 'small') return <h5>{children}</h5>;
+    if (size === 'medium') return <h4>{children}</h4>;
+    if (size === 'large') return <h3>{children}</h3>;
+  }, [size]);
 
   return (
     <StyledCardTitleContainer type={type}>
@@ -76,7 +68,7 @@ Card.Title = ({ size, type, title, extra, onExtra }) => {
   );
 };
 
-Card.Content = ({ children }) => {
+Card.Content = ({ children }: Pick<CardProps, 'children'>): JSX.Element => {
   return <StyledCardContentContainer>{children}</StyledCardContentContainer>;
 };
 
