@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { ComponentProps } from 'react';
 
-export interface ModalProps {
+export interface ModalProps
+  extends Omit<ComponentProps<'div'>, 'ref' | 'children' | 'title'> {
   children: React.ReactNode;
   isOpen: boolean;
   onClose: (e?: React.MouseEvent<HTMLButtonElement>) => void;
