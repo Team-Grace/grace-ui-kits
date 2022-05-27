@@ -1,5 +1,5 @@
 import React, { ForwardedRef, useCallback, useContext, useMemo } from 'react';
-import { CardProps } from '../../types/card';
+import { CardCompound, CardProps } from '../../types/card';
 import {
   StyledCard,
   StyledCardTitleContainer,
@@ -10,7 +10,7 @@ const CardContext = React.createContext<
   Omit<CardProps, 'children'> | undefined
 >(undefined);
 
-const Card: any = React.forwardRef(
+const Card: CardCompound = React.forwardRef(
   (
     {
       children,
@@ -41,7 +41,7 @@ const Card: any = React.forwardRef(
   }
 );
 
-Card.Addon = ({ children, extra, onExtra }: CardProps) => {
+export const CardAddon = ({ children, extra, onExtra }: CardProps) => {
   const { size, type } = useContext(CardContext) as Pick<
     CardProps,
     'size' | 'type'
@@ -68,7 +68,9 @@ Card.Addon = ({ children, extra, onExtra }: CardProps) => {
   );
 };
 
-Card.Content = ({ children }: Pick<CardProps, 'children'>): JSX.Element => {
+export const CardContent = ({
+  children,
+}: Pick<CardProps, 'children'>): JSX.Element => {
   return <StyledCardContentContainer>{children}</StyledCardContentContainer>;
 };
 

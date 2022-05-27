@@ -17,10 +17,8 @@ export interface CardProps
   onExtra?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export interface CardCompound
-  extends ForwardRefExoticComponent<CardProps & RefAttributes<HTMLDivElement>> {
-  Addon: (props: CardProps) => JSX.Element;
-  Content: (props: Pick<CardProps, 'children'>) => JSX.Element;
-}
+export type CardCompound = ForwardRefExoticComponent<
+  CardProps & RefAttributes<HTMLDivElement>
+>;
 
 export type CardStyledProps = Omit<CardProps, 'children' | 'ref'>;
