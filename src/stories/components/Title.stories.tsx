@@ -38,22 +38,22 @@ const Template: Story<TitleProps> = ({ align }: TitleProps) => {
       <hr />
 
       <Title align={align} mt={20} mb={20}>
-        h1 Grace Ui Kits1
+        h1 Grace Ui Kits 1
       </Title>
       <Title align={align} color="primary" mt={20} mb={20}>
-        h1 Grace Ui Kits 2
+        h1 Grace Ui Kits 2 (primary)
       </Title>
       <Title align={align} color="secondary" level={2} mt={20} mb={20}>
-        h2 Grace Ui Kits
+        h2 Grace Ui Kits (secondary)
       </Title>
       <Title align={align} color="success" level={3} mt={20} mb={20}>
-        h3 Grace Ui Kits
+        h3 Grace Ui Kits (success)
       </Title>
       <Title align={align} color="error" level={4} mt={20} mb={20}>
-        h4 Grace Ui Kits
+        h4 Grace Ui Kits (error)
       </Title>
       <Title align={align} color="modern" level={5} mt={20} mb={20}>
-        h5 Grace Ui Kits
+        h5 Grace Ui Kits (modern)
       </Title>
     </>
   );

@@ -15,9 +15,9 @@ const getTextDecorationStyle = (underline?: boolean, lineThrough?: boolean) => {
 const getTextSizeStyle = (size?: Size) => {
   switch (size) {
     case 'small':
-      return '0.85rem';
+      return '0.875rem';
     case 'large':
-      return '1.3rem';
+      return '1.2rem';
     default:
       return '1rem';
   }
