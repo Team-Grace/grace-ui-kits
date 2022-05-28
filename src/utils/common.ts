@@ -1,6 +1,7 @@
-import { TitleProps } from '../types/title';
 import theme from '../shared/theme';
+import { TitleStyledProps } from '../types/title';
 import { Align, Color } from '../types/common';
+import { TextStyledProps } from '../types/text';
 
 export const resetStyle = (type: string) => {
   switch (type) {
@@ -53,13 +54,11 @@ export const getTextAlignStyle = (align: Align) => {
   return `end;`;
 };
 
-export const getTextStyle = (props: TitleProps) => {
-  const { mt, mr, mb, ml, pt, pr, pb, pl, color, align } = props;
+export const getTextStyle = (props: TitleStyledProps | TextStyledProps) => {
+  const { mt, mr, mb, ml, color, align } = props;
 
   return `
-    width: 100%;
     margin: ${mt}px ${mr}px ${mb}px ${ml}px;
-    padding: ${pt}px ${pr}px ${pb}px ${pl}px;
     color: ${color && getColorType(color).default};
     text-align: ${align && getTextAlignStyle(align)};
   `;

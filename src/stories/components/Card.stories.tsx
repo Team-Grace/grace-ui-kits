@@ -3,6 +3,7 @@ import Card from 'src/components/Card/Card';
 import ButtonGroup from 'src/components/ButtonGroup/ButtonGroup';
 import Button from 'src/components/Button/Button';
 import Title from 'src/components/Title/Title';
+import Text from 'src/components/Text/Text';
 import { CardProps } from 'src/types/card';
 import { Story } from '@storybook/react/types-6-0';
 
@@ -24,14 +25,14 @@ const Template: Story<CardProps> = ({ size, extra, type, onExtra }) => {
   return (
     <>
       <h2>Card No Title</h2>
-      <Card mb={20}>
+      <Card mb={20} size={size}>
         <Card.Content>
-          <p>
+          <Text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
             aperiam? Ea, ullam? Eos nesciunt magnam eum tenetur illo? Similique
             fuga ut quaerat itaque harum exercitationem in excepturi illum,
             repudiandae incidunt.
-          </p>
+          </Text>
         </Card.Content>
       </Card>
 
@@ -43,20 +44,20 @@ const Template: Story<CardProps> = ({ size, extra, type, onExtra }) => {
           <Title level={3}>Header</Title>
         </Card.Addon>
         <Card.Content>
-          <p>
+          <Text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
             aperiam? Ea, ullam? Eos nesciunt magnam eum tenetur illo? Similique
             fuga ut quaerat itaque harum exercitationem in excepturi illum,
             repudiandae incidunt.
-          </p>
+          </Text>
         </Card.Content>
         <Card.Content>
-          <p>
+          <Text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
             aperiam? Ea, ullam? Eos nesciunt magnam eum tenetur illo? Similique
             fuga ut quaerat itaque harum exercitationem in excepturi illum,
             repudiandae incidunt.
-          </p>
+          </Text>
         </Card.Content>
       </Card>
 
@@ -68,26 +69,29 @@ const Template: Story<CardProps> = ({ size, extra, type, onExtra }) => {
           <Title level={3}>Header</Title>
         </Card.Addon>
         <Card.Content>
-          <p>Hi</p>
-          <p>Grace Ui kits</p>
-          <p>with React</p>
+          <Text italic size="large">
+            Hi
+          </Text>
+          <Text>Grace Ui kits</Text>
+          <Text>with React</Text>
         </Card.Content>
       </Card>
 
       <hr />
 
-      <h2>Card with Button</h2>
+      <h2>Card with Button (round)</h2>
 
-      <Card mb={20} size={size} width={500}>
+      <Card mb={20} size={size} width={500} shape="round">
         <Card.Addon extra={extra} onExtra={onExtra} type={type}>
           <Title color="primary" level={3}>
             Header (color=primary)
           </Title>
         </Card.Addon>
         <Card.Content>
-          <p>Hi</p>
-          <p>Grace Ui kits</p>
-          <p>with React</p>
+          <Text color="secondary">Hi</Text>
+          <Text>Grace Ui kits</Text>
+          <Text underline>with React</Text>
+          <Text color="success">Author: Gromit</Text>
         </Card.Content>
         <Card.Addon>
           <ButtonGroup align="end">

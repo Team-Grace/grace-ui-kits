@@ -1,12 +1,13 @@
 import { ComponentProps } from 'react';
-import { Space } from './common';
+import { Size, Space, Shape, Variant } from './common';
 
 export interface CardProps
   extends Omit<ComponentProps<'div'>, 'ref' | 'children' | 'title'>,
     Space {
   children: React.ReactNode;
-  size?: 'small' | 'medium' | 'large';
-  type?: 'contained' | 'outlined';
+  size?: Size;
+  type?: Variant;
+  shape?: Shape;
   width?: number;
   title?: string;
   extra?: string | React.ReactNode;

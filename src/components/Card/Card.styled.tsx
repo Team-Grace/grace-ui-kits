@@ -1,22 +1,28 @@
+import { Size } from '../../types/common';
 import styled from 'styled-components';
 import theme from '../../shared/theme';
 import { CardStyledProps } from '../../types/card';
 
+const getCardPaddingStyle = (size: Size) => {
+  if (size === 'small') {
+    return `padding: 10px;`;
+  } else if (size === 'medium') {
+    return `padding: 15px;`;
+  }
+  return `padding: 20px;`;
+};
+
 export const StyledCard = styled.div<CardStyledProps>`
   width: ${({ width }) => (width ? `${width}px` : `100%`)};
   border: 1px solid ${theme.colors.gray[100]};
+  border-radius: ${({ shape }) => (shape === 'rect' ? '' : '6px')};
   margin: ${({ mt, mr, mb, ml }) => `${mt}px ${mr}px ${mb}px ${ml}px`};
-  padding: ${({ pt, pr, pb, pl }) => `${pt}px ${pr}px ${pb}px ${pl}px`};
   background-color: #fff;
+  overflow: hidden;
 
   & > div {
     ${({ size }) => {
-      if (size === 'small') {
-        return `padding: 8px;`;
-      } else if (size === 'medium') {
-        return `padding: 12px;`;
-      }
-      return `padding: 16px;`;
+      if (size) return getCardPaddingStyle(size);
     }}
   }
 

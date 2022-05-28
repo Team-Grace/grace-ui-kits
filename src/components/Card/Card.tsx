@@ -32,23 +32,20 @@ const Card = Object.assign(
       {
         children,
         size = 'medium',
+        shape = 'rect',
         width,
         mt = 0,
         mr = 0,
         mb = 0,
         ml = 0,
-        pt = 0,
-        pr = 0,
-        pb = 0,
-        pl = 0,
         ...rest
       }: CardProps,
       ref: ForwardedRef<HTMLDivElement>
     ) => {
-      const space = { pt, pr, pb, pl, mt, mr, mb, ml };
+      const props = { shape, size, width, mt, mr, mb, ml };
 
       return (
-        <StyledCard ref={ref} size={size} width={width} {...space} {...rest}>
+        <StyledCard ref={ref} {...props} {...rest}>
           {children}
         </StyledCard>
       );

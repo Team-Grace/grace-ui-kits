@@ -30,7 +30,7 @@ export const ModalHeaderContainer = styled.div<{ color: Color }>`
 `;
 
 export const ModalContentContainer = styled.div`
-  padding: 30px 20px;
+  padding: 25px 20px;
 `;
 
 export const ModalButtonContainer = styled.div`

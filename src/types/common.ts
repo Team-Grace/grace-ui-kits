@@ -8,6 +8,7 @@ export type Color =
   | 'modern'
   | undefined;
 export type Variant = 'outlined' | 'contained';
+export type Shape = 'rect' | 'round';
 
 export interface Space {
   mt?: number;

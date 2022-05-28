@@ -16,6 +16,7 @@ const Button = React.forwardRef(
     }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>
   ) => {
+    const props = { size, shape, color, variant, fullWidth };
     const [ripple, setRipple] = useState(false);
     const handleClick = useCallback(
       (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -32,12 +33,8 @@ const Button = React.forwardRef(
       <StyledButton
         ref={ref}
         className={ripple ? 'active' : ''}
-        size={size}
-        shape={shape}
-        color={color}
-        variant={variant}
-        fullWidth={fullWidth}
         onClick={handleClick}
+        {...props}
         {...rest}>
         {children}
       </StyledButton>
