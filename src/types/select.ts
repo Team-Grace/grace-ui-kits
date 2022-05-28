@@ -7,10 +7,10 @@ export interface SelectProps
   extends Omit<ComponentProps<'div'>, OmitType>,
     Space {
   children: React.ReactNode;
+  value: string | number;
   onChange: (e: any) => void;
   size?: Size;
   color?: Color;
-  value?: string | number;
   shape?: Shape;
   width?: number;
   height?: number;

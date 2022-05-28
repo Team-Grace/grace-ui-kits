@@ -69,12 +69,6 @@ const Select = Object.assign(
         width,
       };
 
-      const onPreventMouseDown = useCallback(
-        (e: React.MouseEvent<HTMLDivElement>) => {
-          e.preventDefault();
-        },
-        []
-      );
       const handleToggleSelect = useCallback(() => {
         if (!disabled) {
           setIsOpenSelect(!isOpenSelect);
@@ -111,7 +105,6 @@ const Select = Object.assign(
               color={color}
               shape={shape}
               disabled={disabled}
-              onMouseDown={onPreventMouseDown}
               onClick={handleToggleSelect}>
               <Text className={value ? '' : 'placeholder'}>
                 {value ? value : placeholder}
