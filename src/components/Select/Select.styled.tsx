@@ -68,7 +68,7 @@ export const StyledSelectItemContainer = styled.ul<{ height?: number }>`
   position: absolute;
   top: 55px;
   width: 100%;
-  max-height: ${({ height }) => (height ? `${height}px` : ``)};
+  max-height: ${({ height }) => height && `${height}px`};
   background-color: #fff;
   box-shadow: 0 0 5px 0.5px #afafaf;
   overflow: scroll;
@@ -82,7 +82,7 @@ export const StyledSelectItemContainer = styled.ul<{ height?: number }>`
   }
 `;
 
-export const StyledSelectItem = styled.li<{ color: Color }>`
+export const StyledSelectItem = styled.li<{ color?: Color }>`
   padding: 15px 20px;
   cursor: pointer;
 
@@ -91,6 +91,6 @@ export const StyledSelectItem = styled.li<{ color: Color }>`
   }
 
   &.active {
-    background-color: ${({ color }) => color && getColorType(color).light};
+    background-color: ${({ color }) => getColorType(color).light};
   }
 `;

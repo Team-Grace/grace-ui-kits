@@ -14,7 +14,7 @@ const getCardPaddingStyle = (size: Size) => {
 
 export const StyledCard = styled.div<CardStyledProps>`
   width: ${({ width }) => (width ? `${width}px` : `100%`)};
-  border: 1px solid ${theme.colors.gray[100]};
+  border: 1px solid ${theme.colors.gray[200]};
   border-radius: ${({ shape }) => (shape === 'rect' ? '' : '6px')};
   margin: ${({ mt, mr, mb, ml }) => `${mt}px ${mr}px ${mb}px ${ml}px`};
   background-color: #fff;
@@ -35,7 +35,7 @@ export const StyledCard = styled.div<CardStyledProps>`
   }
 
   & > div:not(last-of-type, first-of-type) {
-    border-bottom: 1px solid ${theme.colors.gray[100]};
+    border-bottom: 1px solid ${theme.colors.gray[200]};
   }
 `;
 
