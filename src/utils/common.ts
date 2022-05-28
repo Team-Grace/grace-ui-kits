@@ -14,6 +14,12 @@ export const resetStyle = (type: string) => {
         background-color: #fff;
         cursor: pointer;
       `;
+    case 'ul':
+      return `
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      `;
     default:
       return '';
   }

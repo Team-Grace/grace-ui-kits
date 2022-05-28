@@ -1,8 +1,9 @@
 import { ComponentProps } from 'react';
 import { Size, Space, Shape, Variant } from './common';
 
+type OmitType = 'ref' | 'children' | 'title';
 export interface CardProps
-  extends Omit<ComponentProps<'div'>, 'ref' | 'children' | 'title'>,
+  extends Omit<ComponentProps<'div'>, OmitType>,
     Space {
   children: React.ReactNode;
   size?: Size;

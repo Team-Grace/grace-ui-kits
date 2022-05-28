@@ -21,12 +21,12 @@ import {
   ModalButtonContainer,
 } from './Modal.styled';
 
-const modalContext = React.createContext<ModalContextProps | undefined>(
+const ModalContext = React.createContext<ModalContextProps | undefined>(
   undefined
 );
 
 const ModalHeader = ({ children }: ModalPickChildren) => {
-  const { color, onClose } = useContext(modalContext) as ModalContextProps;
+  const { color, onClose } = useContext(ModalContext) as ModalContextProps;
   return (
     <ModalHeaderContainer color={color}>
       <Title level={4}>{children}</Title>
@@ -41,7 +41,7 @@ const ModalContent = ({ children }: ModalPickChildren) => {
 
 const ModalFooter = () => {
   const { color, buttonType, onClose, onConfirm } = useContext(
-    modalContext
+    ModalContext
   ) as ModalContextProps;
 
   return (
@@ -120,13 +120,13 @@ const Modal = Object.assign(
         <>
           {isOpen && (
             <Dimmend>
-              <modalContext.Provider value={providerValue}>
+              <ModalContext.Provider value={providerValue}>
                 <StyledModal ref={ref} shape={shape} {...rest}>
                   {title && <Modal.Header>{title}</Modal.Header>}
                   <Modal.Content>{children}</Modal.Content>
                   <Modal.Footer />
                 </StyledModal>
-              </modalContext.Provider>
+              </ModalContext.Provider>
             </Dimmend>
           )}
         </>
