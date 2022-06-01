@@ -1,7 +1,7 @@
 import { Size } from '../../types/common';
 import styled from 'styled-components';
 import theme from '../../shared/theme';
-import { CardStyledProps } from '../../types/card';
+import { StyledCardProps } from '../../types/card';
 
 const getCardPaddingStyle = (size: Size) => {
   if (size === 'small') {
@@ -12,7 +12,7 @@ const getCardPaddingStyle = (size: Size) => {
   return `padding: 20px;`;
 };
 
-export const StyledCard = styled.div<CardStyledProps>`
+export const StyledCard = styled.div<StyledCardProps>`
   width: ${({ width }) => (width ? `${width}px` : `100%`)};
   border: 1px solid ${theme.colors.gray[200]};
   border-radius: ${({ shape }) => (shape === 'rect' ? '' : '6px')};
@@ -39,7 +39,9 @@ export const StyledCard = styled.div<CardStyledProps>`
   }
 `;
 
-export const StyledCardTitleContainer = styled.div<CardStyledProps>`
+export const StyledCardTitleContainer = styled.div<
+  Pick<StyledCardProps, 'type'>
+>`
   display: flex;
   justify-content: space-between;
   align-items: center;

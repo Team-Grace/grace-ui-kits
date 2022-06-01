@@ -11,7 +11,6 @@ export const resetStyle = (type: string) => {
         padding: 0;
         border: none;
         outline: none;
-        background-color: #fff;
         cursor: pointer;
       `;
     case 'ul':

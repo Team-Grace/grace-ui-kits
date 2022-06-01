@@ -21,4 +21,4 @@ export type CardAddonProps = Pick<
 >;
 
 export type CardContentProps = Pick<CardProps, 'children'>;
-export type CardStyledProps = Omit<CardProps, 'children' | 'ref'>;
+export type StyledCardProps = Omit<CardProps, 'children' | 'ref'>;

@@ -1,10 +1,10 @@
 import theme from '../../shared/theme';
 import styled from 'styled-components';
 import { getColorType, resetStyle } from '../../utils/common.utils';
-import { ModalStyledProps } from '../../types/modal';
+import { StyledModalProps } from '../../types/modal';
 import { Color } from '../../types/common';
 
-export const StyledModal = styled.div<ModalStyledProps>`
+export const StyledModal = styled.div<StyledModalProps>`
   min-width: 280px;
   max-width: 340px;
   background-color: #fff;
@@ -21,6 +21,7 @@ export const ModalHeaderContainer = styled.div<{ color: Color }>`
 
   & > button {
     ${resetStyle('button')}
+    background-color: transparent;
     font-size: 1rem;
 
     &:hover {

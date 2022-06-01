@@ -17,5 +17,4 @@ export type ModalContextProps = Pick<
   ModalProps,
   'color' | 'onClose' | 'onConfirm' | 'buttonType'
 >;
-export type ModalFooterProps = Pick<ModalProps, 'buttonType'>;
-export type ModalStyledProps = Pick<ModalProps, 'shape'>;
+export type StyledModalProps = Pick<ModalProps, 'shape'>;

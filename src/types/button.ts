@@ -1,6 +1,8 @@
 import { ComponentProps } from 'react';
 import { Space } from './common';
 
+type StyledPickType = 'shape' | 'fullWidth' | 'size' | 'color' | 'variant';
+
 export interface ButtonGroupProps
   extends Omit<ComponentProps<'div'>, 'ref'>,
     Space {
@@ -19,3 +21,5 @@ export interface ButtonProps
   shape?: 'rect' | 'round';
   fullWidth?: boolean;
 }
+
+export type ButtonStyledProps = Pick<ButtonProps, StyledPickType>;

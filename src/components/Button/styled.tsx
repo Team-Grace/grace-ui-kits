@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import theme from '../../shared/theme';
-import { ButtonProps } from '../../types/button';
+import { ButtonStyledProps } from '../../types/button';
 import { getColorType } from '../../utils/common.utils';
 import {
   getButtonSizeStyle,
   getVariantStyle,
   getVarianHoverStyle,
 } from '../../utils/button.utils';
-
-export type ButtonStyledProps = Omit<ButtonProps, 'children' | 'onClick'>;
 
 export const StyledButton = styled.button<ButtonStyledProps>`
   position: relative;
