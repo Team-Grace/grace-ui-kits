@@ -1,10 +1,10 @@
 import React from 'react';
-import Card from 'src/components/Card/Card';
-import ButtonGroup from 'src/components/ButtonGroup/ButtonGroup';
-import Button from 'src/components/Button/Button';
-import Title from 'src/components/Title/Title';
-import Text from 'src/components/Text/Text';
-import { CardProps } from 'src/types/card';
+import Card from '../../components/Card';
+import ButtonGroup from '../../components/ButtonGroup';
+import Button from '../../components/Button';
+import Title from '../../components/Title';
+import Text from '../../components/Text';
+import { CardProps } from '../../types/card';
 import { Story } from '@storybook/react/types-6-0';
 
 export default {

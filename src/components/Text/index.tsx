@@ -1,6 +1,6 @@
 import React, { ForwardedRef } from 'react';
 import { TextProps } from '../../types/text';
-import { StyledText } from './Text.styled';
+import { StyledText } from './styled';
 
 const Text = React.forwardRef(
   (

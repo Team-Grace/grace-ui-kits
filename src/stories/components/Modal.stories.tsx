@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Story } from '@storybook/react/types-6-0';
-import Modal from 'src/components/Modal/Modal';
-import Button from 'src/components/Button/Button';
+import Modal from '../../components/Modal';
+import Button from '../../components/Button';
 
 export default {
   title: 'components/Modal',

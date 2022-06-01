@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { TitleStyledProps } from '../../types/title';
-import { getTextStyle } from '../../utils/common';
+import { getTextStyle } from '../../utils/common.utils';
 
 export const StyledH1 = styled.h1<TitleStyledProps>`
   ${(props) => {

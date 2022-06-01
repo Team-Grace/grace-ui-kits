@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ButtonGroupProps } from '../../types/button';
-import { getFlexItemAlignStyle } from '../../utils/common';
+import { getFlexItemAlignStyle } from '../../utils/common.utils';
 
 export type ButtonGroupStyledProps = Omit<ButtonGroupProps, 'children' | 'ref'>;
 

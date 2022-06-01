@@ -1,6 +1,6 @@
 import React, { ForwardedRef } from 'react';
 import { ButtonGroupProps } from '../../types/button';
-import { StyledButtonGroup } from './ButtonGroup.styled';
+import { StyledButtonGroup } from './styled';
 
 const ButtonGroup = React.forwardRef(
   (

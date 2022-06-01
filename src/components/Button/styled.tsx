@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import theme from '../../shared/theme';
 import { ButtonProps } from '../../types/button';
-import { getColorType } from '../../utils/common';
+import { getColorType } from '../../utils/common.utils';
 import {
   getButtonSizeStyle,
   getVariantStyle,
   getVarianHoverStyle,
-} from './Button.util';
+} from '../../utils/button.utils';
 
 export type ButtonStyledProps = Omit<ButtonProps, 'children' | 'onClick'>;
 
@@ -42,18 +42,15 @@ export const StyledButton = styled.button<ButtonStyledProps>`
   &.active::after {
     position: absolute;
     content: '';
-    width: 300px;
-    height: 300px;
+    height: 100%;
     top: 50%;
     left: 50%;
-    background-color: ${({ color, variant }) => {
-      if (color) {
-        if (variant === 'contained') return getColorType(color).light;
-        return getColorType(color).hover;
-      }
-    }};
     transform: translate(-50%, -50%);
     animation: sizeUp 0.4s;
+    background-color: ${({ color, variant }) =>
+      variant === 'contained'
+        ? getColorType(color).light
+        : getColorType(color).hover};
   }
 
   // disabled

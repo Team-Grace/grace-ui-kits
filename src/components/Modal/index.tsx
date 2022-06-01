@@ -5,10 +5,10 @@ import React, {
   useEffect,
   useMemo,
 } from 'react';
-import Button from '../Button/Button';
-import ButtonGroup from '../ButtonGroup/ButtonGroup';
-import Title from '../Title/Title';
-import { Dimmend } from '../Common/Common.styled';
+import Button from '../Button';
+import ButtonGroup from '../ButtonGroup';
+import Title from '../Title';
+import { Dimmend } from '../Common';
 import {
   ModalProps,
   ModalPickChildren,
@@ -19,7 +19,7 @@ import {
   ModalHeaderContainer,
   ModalContentContainer,
   ModalButtonContainer,
-} from './Modal.styled';
+} from './styled';
 
 const ModalContext = React.createContext<ModalContextProps | undefined>(
   undefined

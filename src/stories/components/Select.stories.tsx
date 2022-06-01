@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Story } from '@storybook/react/types-6-0';
-import Select from 'src/components/Select/Select';
-import Title from 'src/components/Title/Title';
+import Select from '../../components/Select';
+import Title from '../../components/Title';
 
 export default {
   title: 'components/Select',

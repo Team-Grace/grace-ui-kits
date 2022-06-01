@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
-import Title from 'src/components/Title/Title';
-import { TitleProps } from 'src/types/title';
+import Title from '../../components/Title';
+import { TitleProps } from '../../types/title';
 
 export default {
   title: 'components/Title',

@@ -1,12 +1,6 @@
 import React, { ForwardedRef } from 'react';
 import { TitleProps } from '../../types/title';
-import {
-  StyledH1,
-  StyledH2,
-  StyledH3,
-  StyledH4,
-  StyledH5,
-} from './Title.styled';
+import { StyledH1, StyledH2, StyledH3, StyledH4, StyledH5 } from './styled';
 
 const Title = React.forwardRef(
   (

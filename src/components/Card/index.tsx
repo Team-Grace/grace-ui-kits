@@ -4,7 +4,7 @@ import {
   StyledCard,
   StyledCardTitleContainer,
   StyledCardContentContainer,
-} from './Card.styled';
+} from './styled';
 
 const CardAddon = ({ children, extra, type, onExtra }: CardAddonProps) => {
   const handleExtra = useCallback(

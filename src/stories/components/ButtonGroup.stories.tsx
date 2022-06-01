@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
-import Button from 'src/components/Button/Button';
-import ButtonGroup from 'src/components/ButtonGroup/ButtonGroup';
+import Button from '../../components/Button';
+import ButtonGroup from '../../components/ButtonGroup';
 
 export default {
   title: 'components/ButtonGroup',

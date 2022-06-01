@@ -11,13 +11,13 @@ import {
   SelectItemProps,
   SelectProps,
 } from '../../types/select';
-import Text from '../Text/Text';
+import Text from '../Text';
 import {
   StyledSelect,
   StyledSelectInput,
   StyledSelectItem,
   StyledSelectItemContainer,
-} from './Select.styled';
+} from './styled';
 
 const SelectContext = React.createContext<SelectContextProps | undefined>(
   undefined
