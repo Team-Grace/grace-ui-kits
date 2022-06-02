@@ -1,6 +1,6 @@
 import theme from '../../shared/theme';
 import styled from 'styled-components';
-import { getColorType, resetStyle } from '../../utils/common.utils';
+import { getColorType, resetStyle } from '../../utils/common';
 import { StyledModalProps } from '../../types/modal';
 import { Color } from '../../types/common';
 

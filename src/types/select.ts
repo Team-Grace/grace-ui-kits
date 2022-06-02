@@ -23,11 +23,12 @@ export interface SelectItemProps {
 }
 export interface SelectContextProps {
   color?: Color;
+  size?: Size;
   selectValue?: string | number;
   onChange: (value: string | number) => void;
 }
 
-export type SelectStyledProps = Pick<
+export type StyledSelectProps = Pick<
   SelectProps,
   'color' | 'mt' | 'ml' | 'mr' | 'mb' | 'width'
 >;

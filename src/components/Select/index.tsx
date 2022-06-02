@@ -24,7 +24,7 @@ const SelectContext = React.createContext<SelectContextProps | undefined>(
 );
 
 const SelectItem = ({ children, value }: SelectItemProps) => {
-  const { selectValue, color, onChange } = useContext(
+  const { selectValue, color, onChange, size } = useContext(
     SelectContext
   ) as SelectContextProps;
 
@@ -32,6 +32,7 @@ const SelectItem = ({ children, value }: SelectItemProps) => {
     <StyledSelectItem
       className={selectValue === value ? 'active' : ''}
       color={color}
+      size={size}
       onClick={() => onChange(value)}>
       {children}
     </StyledSelectItem>
@@ -46,6 +47,7 @@ const Select = Object.assign(
         value,
         width,
         height,
+        size = 'medium',
         shape = 'rect',
         placeholder = '',
         disabled = false,
@@ -59,14 +61,21 @@ const Select = Object.assign(
       ref: ForwardedRef<HTMLDivElement>
     ) => {
       const [isOpenSelect, setIsOpenSelect] = useState(false);
-      const refEl = useRef<HTMLDivElement>(null);
+      const inputRef = useRef<HTMLDivElement>(null);
       const props = {
         mt,
         mr,
         mb,
         ml,
+        size,
         color,
         width,
+      };
+      const inputProps = {
+        color,
+        shape,
+        disabled,
+        size,
       };
 
       const handleToggleSelect = useCallback(() => {
@@ -87,7 +96,7 @@ const Select = Object.assign(
 
       useEffect(() => {
         const menuClickEvent = (e: any) => {
-          if (refEl.current !== null && !refEl.current.contains(e.target))
+          if (inputRef.current !== null && !inputRef.current.contains(e.target))
             setIsOpenSelect(false);
         };
 
@@ -97,15 +106,13 @@ const Select = Object.assign(
 
       return (
         <SelectContext.Provider
-          value={{ color, selectValue: value, onChange: handleChange }}>
+          value={{ size, color, selectValue: value, onChange: handleChange }}>
           <StyledSelect ref={ref} {...props}>
             <StyledSelectInput
-              ref={refEl}
+              ref={inputRef}
               className={isOpenSelect ? 'active' : ''}
-              color={color}
-              shape={shape}
-              disabled={disabled}
-              onClick={handleToggleSelect}>
+              onClick={handleToggleSelect}
+              {...inputProps}>
               <Text className={value ? '' : 'placeholder'}>
                 {value ? value : placeholder}
               </Text>
@@ -113,7 +120,7 @@ const Select = Object.assign(
             </StyledSelectInput>
 
             {isOpenSelect && (
-              <StyledSelectItemContainer height={height}>
+              <StyledSelectItemContainer size={size} height={height}>
                 {children}
               </StyledSelectItemContainer>
             )}

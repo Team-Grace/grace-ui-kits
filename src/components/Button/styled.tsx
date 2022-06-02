@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import theme from '../../shared/theme';
 import { StyledButtonProps } from '../../types/button';
-import { getColorType } from '../../utils/common.utils';
+import { getColorType } from '../../utils/common';
 import {
   getButtonSizeStyle,
   getVariantStyle,
   getVarianHoverStyle,
-} from '../../utils/button.utils';
+} from '../../utils/button';
 
 export const StyledButton = styled.button<StyledButtonProps>`
   position: relative;

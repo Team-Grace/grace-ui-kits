@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import { StyledButtonGroupProps } from '../../types/button';
-import {
-  getFlexItemAlignStyle,
-  getMarginStyle,
-} from '../../utils/common.utils';
+import { getFlexItemAlignStyle, getMarginStyle } from '../../utils/common';
 
 export const StyledButtonGroup = styled.div<StyledButtonGroupProps>`
   width: 100%;

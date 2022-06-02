@@ -1,10 +1,15 @@
 import theme from '../../shared/theme';
 import styled from 'styled-components';
-import { getColorType, resetStyle } from '../../utils/common.utils';
-import { Color, Shape } from '../../types/common';
-import { SelectStyledProps } from '../../types/select';
+import { getColorType, resetStyle } from '../../utils/common';
+import { Color, Shape, Size } from '../../types/common';
+import { StyledSelectProps } from '../../types/select';
+import {
+  getFontSizeStyle,
+  getPaddingSizeStyle,
+  getTopPositionStyle,
+} from '../../utils/select';
 
-export const StyledSelect = styled.div<SelectStyledProps>`
+export const StyledSelect = styled.div<StyledSelectProps>`
   position: relative;
   width: ${({ width }) => (width ? `${width}px` : '100%')};
   margin: ${({ mt, mr, mb, ml }) => `${mt}px ${mr}px ${mb}px ${ml}px`};
@@ -14,6 +19,7 @@ export const StyledSelectInput = styled.div<{
   color: Color;
   disabled?: boolean;
   shape: Shape;
+  size: Size;
 }>`
   display: flex;
   justify-content: space-between;
@@ -21,11 +27,14 @@ export const StyledSelectInput = styled.div<{
   cursor: pointer;
   border: 1px solid ${theme.colors.gray[200]};
   border-radius: ${({ shape }) => (shape === 'rect' ? '' : '6px')};
-  padding: 10px 20px;
   transition: all 0.15s;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
 
   p {
-    font-size: 1.15rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -43,6 +52,10 @@ export const StyledSelectInput = styled.div<{
       margin-left: 10px;
       text-align: end;
     }
+
+    ${({ size }) => {
+      return getFontSizeStyle(size);
+    }}
   }
 
   &:hover {
@@ -61,9 +74,16 @@ export const StyledSelectInput = styled.div<{
       ${({ color }) => color && getColorType(color).default};
     border: ${({ color }) => color && `1px solid ${getColorType(color).hover}`};
   }
+
+  ${({ size }) => {
+    return getPaddingSizeStyle(size);
+  }}
 `;
 
-export const StyledSelectItemContainer = styled.ul<{ height?: number }>`
+export const StyledSelectItemContainer = styled.ul<{
+  height?: number;
+  size: Size;
+}>`
   ${resetStyle('ul')}
   position: absolute;
   top: 55px;
@@ -74,16 +94,12 @@ export const StyledSelectItemContainer = styled.ul<{ height?: number }>`
   overflow: scroll;
   z-index: 10;
 
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
-  }
+  ${({ size }) => {
+    return getTopPositionStyle(size);
+  }}
 `;
 
-export const StyledSelectItem = styled.li<{ color?: Color }>`
-  padding: 15px 20px;
+export const StyledSelectItem = styled.li<{ color?: Color; size?: Size }>`
   cursor: pointer;
 
   &:hover {
@@ -93,4 +109,11 @@ export const StyledSelectItem = styled.li<{ color?: Color }>`
   &.active {
     background-color: ${({ color }) => getColorType(color).light};
   }
+
+  ${({ size }) => {
+    return `
+      ${getPaddingSizeStyle(size)};
+      ${getFontSizeStyle(size)};
+    `;
+  }}
 `;

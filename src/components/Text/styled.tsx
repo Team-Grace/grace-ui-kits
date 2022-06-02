@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { TextStyledProps } from '../../types/text';
-import { getTextStyle } from '../../utils/common.utils';
+import { getTextStyle } from '../../utils/common';
 import { Size } from '../../types/common';
 
 const getTextDecorationStyle = (underline?: boolean, lineThrough?: boolean) => {

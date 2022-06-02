@@ -14,10 +14,14 @@ export default {
       options: ['rect', 'round'],
       control: { type: 'select' },
     },
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'select' },
+    },
   },
 };
 
-const Template: Story<any> = ({ color, placeholder, shape }: any) => {
+const Template: Story<any> = ({ color, placeholder, shape, size }: any) => {
   const [value1, setValue1] = useState('');
   const [value2, setValue2] = useState('');
   const [value3, setValue3] = useState('Disabled Value');
@@ -39,6 +43,7 @@ const Template: Story<any> = ({ color, placeholder, shape }: any) => {
       </Title>
       <Select
         mb={40}
+        size={size}
         color={color}
         value={value1}
         shape={shape}
@@ -57,6 +62,7 @@ const Template: Story<any> = ({ color, placeholder, shape }: any) => {
       </Title>
       <Select
         mb={40}
+        size={size}
         width={300}
         height={300}
         color={color}
@@ -83,6 +89,7 @@ const Template: Story<any> = ({ color, placeholder, shape }: any) => {
       </Title>
       <Select
         mb={40}
+        size={size}
         color={color}
         value={value3}
         shape={shape}
