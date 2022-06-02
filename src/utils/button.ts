@@ -1,24 +1,5 @@
 import { getColorType } from './common';
-import { Size, Color, Variant } from '../types/common';
-
-export const getButtonSizeStyle = (size: Size) => {
-  if (size === 'small') {
-    return `
-      padding: 4px 14px;
-      font-size: 0.85rem;
-    `;
-  } else if (size === 'medium') {
-    return `
-      padding: 6px 18px;
-      font-size: 1rem;
-    `;
-  } else {
-    return `
-      padding: 8px 22px;
-      font-size: 1.15rem;
-    `;
-  }
-};
+import { Color, Variant } from '../types/common';
 
 export const getVariantStyle = (colorType?: Color, variant?: Variant) => {
   const color = getColorType(colorType);

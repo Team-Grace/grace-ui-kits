@@ -1,12 +1,15 @@
 import theme from '../../shared/theme';
 import styled from 'styled-components';
-import { getColorType, resetStyle } from '../../utils/common';
-import { Color, Shape, Size } from '../../types/common';
-import { StyledSelectProps } from '../../types/select';
+import { getColorType, resetStyle, getFontSizeStyle } from '../../utils/common';
 import {
-  getFontSizeStyle,
-  getPaddingSizeStyle,
-  getTopPositionStyle,
+  StyledSelectInputProps,
+  StyledSelectItemContainerProps,
+  StyledSelectItemProps,
+  StyledSelectProps,
+} from '../../types/select';
+import {
+  getTopPositionSelectItemContainerStyle,
+  getPaddingSelectStyle,
 } from '../../utils/select';
 
 export const StyledSelect = styled.div<StyledSelectProps>`
@@ -15,12 +18,7 @@ export const StyledSelect = styled.div<StyledSelectProps>`
   margin: ${({ mt, mr, mb, ml }) => `${mt}px ${mr}px ${mb}px ${ml}px`};
 `;
 
-export const StyledSelectInput = styled.div<{
-  color: Color;
-  disabled?: boolean;
-  shape: Shape;
-  size: Size;
-}>`
+export const StyledSelectInput = styled.div<StyledSelectInputProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,11 +26,6 @@ export const StyledSelectInput = styled.div<{
   border: 1px solid ${theme.colors.gray[200]};
   border-radius: ${({ shape }) => (shape === 'rect' ? '' : '6px')};
   transition: all 0.15s;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
-  }
 
   p {
     white-space: nowrap;
@@ -76,14 +69,11 @@ export const StyledSelectInput = styled.div<{
   }
 
   ${({ size }) => {
-    return getPaddingSizeStyle(size);
+    return getPaddingSelectStyle(size);
   }}
 `;
 
-export const StyledSelectItemContainer = styled.ul<{
-  height?: number;
-  size: Size;
-}>`
+export const StyledSelectItemContainer = styled.ul<StyledSelectItemContainerProps>`
   ${resetStyle('ul')}
   position: absolute;
   top: 55px;
@@ -93,13 +83,16 @@ export const StyledSelectItemContainer = styled.ul<{
   box-shadow: 0 0 5px 0.5px #afafaf;
   overflow: scroll;
   z-index: 10;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
 
-  ${({ size }) => {
-    return getTopPositionStyle(size);
-  }}
+  ${({ size }) => getTopPositionSelectItemContainerStyle(size)}
 `;
 
-export const StyledSelectItem = styled.li<{ color?: Color; size?: Size }>`
+export const StyledSelectItem = styled.li<StyledSelectItemProps>`
   cursor: pointer;
 
   &:hover {
@@ -112,7 +105,7 @@ export const StyledSelectItem = styled.li<{ color?: Color; size?: Size }>`
 
   ${({ size }) => {
     return `
-      ${getPaddingSizeStyle(size)};
+      ${getPaddingSelectStyle(size)};
       ${getFontSizeStyle(size)};
     `;
   }}

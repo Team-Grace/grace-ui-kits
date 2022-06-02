@@ -1,20 +1,20 @@
 import React, { ComponentProps } from 'react';
+import { Color, Shape } from './common';
 
-export interface ModalProps
-  extends Omit<ComponentProps<'div'>, 'ref' | 'children' | 'title'> {
+type ModalOmitType = 'ref' | 'children' | 'title';
+type ModalContextPickType = 'color' | 'onClose' | 'onConfirm' | 'buttonType';
+
+export interface ModalProps extends Omit<ComponentProps<'div'>, ModalOmitType> {
   children: React.ReactNode;
   isOpen: boolean;
   onClose: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   onConfirm: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   buttonType?: 'double' | 'single';
-  shape?: 'rect' | 'round';
-  color?: 'primary' | 'secondary' | 'success' | 'error' | 'modern';
+  shape?: Shape;
+  color?: Color;
   title?: string;
 }
 
 export type ModalPickChildren = Pick<ModalProps, 'children'>;
-export type ModalContextProps = Pick<
-  ModalProps,
-  'color' | 'onClose' | 'onConfirm' | 'buttonType'
->;
+export type ModalContextProps = Pick<ModalProps, ModalContextPickType>;
 export type StyledModalProps = Pick<ModalProps, 'shape'>;

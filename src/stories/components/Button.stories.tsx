@@ -19,10 +19,6 @@ export default {
       options: ['rect', 'round'],
       control: { type: 'select' },
     },
-    variant: {
-      options: ['contained', 'outlined'],
-      control: { type: 'select' },
-    },
   },
 };
 
@@ -71,6 +67,7 @@ export const Modern = Template.bind({});
 Primary.args = {
   children: 'Button Primary',
   fullWidth: false,
+  color: 'primary',
   size: 'medium',
   shape: 'rect',
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),

@@ -111,4 +111,5 @@ Default.args = {
   color: 'primary',
   placeholder: 'Select Value',
   shape: 'rect',
+  size: 'medium',
 };

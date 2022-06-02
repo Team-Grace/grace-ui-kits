@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import theme from '../../shared/theme';
 import { StyledButtonProps } from '../../types/button';
-import { getColorType } from '../../utils/common';
 import {
-  getButtonSizeStyle,
-  getVariantStyle,
-  getVarianHoverStyle,
-} from '../../utils/button';
+  getColorType,
+  getFontSizeStyle,
+  getPaddingSizeStyle,
+} from '../../utils/common';
+import { getVariantStyle, getVarianHoverStyle } from '../../utils/button';
 
 export const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
@@ -15,14 +15,19 @@ export const StyledButton = styled.button<StyledButtonProps>`
   border: none;
   outline: none;
   cursor: pointer;
+  overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: ${({ shape }) => (shape === 'rect' ? '0' : '6px')};
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'max-content')};
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  overflow: hidden;
 
   // size
   ${({ size }) => {
-    if (size) return getButtonSizeStyle(size);
+    if (size) {
+      return `
+        ${getPaddingSizeStyle(size)}
+        ${getFontSizeStyle(size)}
+      `;
+    }
   }}
 
   // color

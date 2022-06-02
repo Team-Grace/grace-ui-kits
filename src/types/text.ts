@@ -1,17 +1,31 @@
 import { ComponentProps } from 'react';
-import { Space } from './common';
+import { Align, Color, Size, Space } from './common';
+
+type TextOmitType = 'ref' | 'children';
+type StyledTextPickType =
+  | 'mt'
+  | 'ml'
+  | 'mb'
+  | 'mr'
+  | 'color'
+  | 'align'
+  | 'size'
+  | 'bold'
+  | 'italic'
+  | 'underline'
+  | 'lineThrough';
 
 export interface TextProps
-  extends Omit<ComponentProps<'h1'>, 'ref' | 'children'>,
+  extends Omit<ComponentProps<'h1'>, TextOmitType>,
     Space {
   children: React.ReactNode | string;
   underline?: boolean;
   lineThrough?: boolean;
   bold?: boolean;
   italic?: boolean;
-  size?: 'small' | 'medium' | 'large';
-  color?: '' | 'primary' | 'secondary' | 'success' | 'error' | 'modern';
-  align?: 'start' | 'center' | 'end';
+  size?: Size;
+  color?: Color;
+  align?: Align;
 }
 
-export type TextStyledProps = Omit<TextProps, 'children' | 'ref'>;
+export type StyledTextProps = Pick<TextProps, StyledTextPickType>;

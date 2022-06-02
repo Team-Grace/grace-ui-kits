@@ -1,5 +1,5 @@
 import { ComponentProps } from 'react';
-import { Space } from './common';
+import { Color, Shape, Size, Space, Variant } from './common';
 
 type StyledPickType = 'shape' | 'fullWidth' | 'size' | 'color' | 'variant';
 
@@ -15,10 +15,10 @@ export interface ButtonGroupProps
 export interface ButtonProps
   extends Omit<ComponentProps<'button'>, 'ref' | 'children'> {
   children: React.ReactNode | string;
-  color?: 'primary' | 'secondary' | 'success' | 'error' | 'modern';
-  variant?: 'contained' | 'outlined';
-  size?: 'small' | 'medium' | 'large';
-  shape?: 'rect' | 'round';
+  color?: Color;
+  variant?: Variant;
+  size?: Size;
+  shape?: Shape;
   fullWidth?: boolean;
 }
 

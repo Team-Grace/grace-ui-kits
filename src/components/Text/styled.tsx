@@ -1,33 +1,14 @@
 import styled from 'styled-components';
-import { TextStyledProps } from '../../types/text';
-import { getTextStyle } from '../../utils/common';
-import { Size } from '../../types/common';
+import { StyledTextProps } from '../../types/text';
+import { getTextStyle, getFontSizeStyle } from '../../utils/common';
+import { getTextDecorationStyle } from '../../utils/text';
 
-const getTextDecorationStyle = (underline?: boolean, lineThrough?: boolean) => {
-  if (underline) {
-    return 'underline';
-  } else if (lineThrough) {
-    return 'line-through';
-  }
-  return '';
-};
+export const StyledText = styled.p<StyledTextProps>`
+  ${({ mt, mr, mb, ml, color,
+  align, }) => getTextStyle({ mt, mr, mb, ml, color,
+  align, })}
 
-const getTextSizeStyle = (size?: Size) => {
-  switch (size) {
-    case 'small':
-      return '0.875rem';
-    case 'large':
-      return '1.2rem';
-    default:
-      return '1rem';
-  }
-};
-
-export const StyledText = styled.p<TextStyledProps>`
-  ${(props) => {
-    return getTextStyle(props);
-  }}
-  font-size: ${({ size }) => getTextSizeStyle(size)};
+  font-size: ${({ size }) => getFontSizeStyle(size)};
   font-weight: ${({ bold }) => bold && 'bold'};
   font-style: ${({ italic }) => italic && 'italic'};
   text-decoration: ${({ underline, lineThrough }) => {

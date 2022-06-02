@@ -1,10 +1,12 @@
 import { ComponentProps } from 'react';
 import { Size, Space, Shape, Color } from './common';
 
-type OmitType = 'ref' | 'children';
+type SelectOmitType = 'ref' | 'children';
+type StyledSelectPickType = 'color' | 'width' | 'mt' | 'ml' | 'mr' | 'mb';
+type StyledSelectInputPickType = 'color' | 'disabled' | 'shape' | 'size';
 
 export interface SelectProps
-  extends Omit<ComponentProps<'div'>, OmitType>,
+  extends Omit<ComponentProps<'div'>, SelectOmitType>,
     Space {
   children: React.ReactNode;
   value: string | number;
@@ -28,7 +30,13 @@ export interface SelectContextProps {
   onChange: (value: string | number) => void;
 }
 
-export type StyledSelectProps = Pick<
+export type StyledSelectProps = Pick<SelectProps, StyledSelectPickType>;
+export type StyledSelectInputProps = Pick<
   SelectProps,
-  'color' | 'mt' | 'ml' | 'mr' | 'mb' | 'width'
+  StyledSelectInputPickType
 >;
+export type StyledSelectItemContainerProps = Pick<
+  SelectProps,
+  'height' | 'size'
+>;
+export type StyledSelectItemProps = Pick<SelectProps, 'color' | 'size'>;
