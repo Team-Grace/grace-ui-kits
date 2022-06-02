@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../shared/theme';
-import { ButtonStyledProps } from '../../types/button';
+import { StyledButtonProps } from '../../types/button';
 import { getColorType } from '../../utils/common.utils';
 import {
   getButtonSizeStyle,
@@ -8,7 +8,7 @@ import {
   getVarianHoverStyle,
 } from '../../utils/button.utils';
 
-export const StyledButton = styled.button<ButtonStyledProps>`
+export const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
   color: #fff;
   line-height: 1.75;

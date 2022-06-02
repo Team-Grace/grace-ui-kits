@@ -10,10 +10,6 @@ const ButtonGroup = React.forwardRef(
       mr = 0,
       mb = 0,
       ml = 0,
-      pt = 0,
-      pr = 0,
-      pb = 0,
-      pl = 0,
       gap = 3,
       align = 'start',
       direction = 'row',
@@ -21,7 +17,7 @@ const ButtonGroup = React.forwardRef(
     }: ButtonGroupProps,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
-    const props = { direction, gap, align, pt, pr, pb, pl, mt, mr, mb, ml };
+    const props = { direction, gap, align, mt, mr, mb, ml };
 
     return (
       <StyledButtonGroup ref={ref} {...props} {...rest}>

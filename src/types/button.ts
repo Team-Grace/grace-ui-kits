@@ -22,4 +22,5 @@ export interface ButtonProps
   fullWidth?: boolean;
 }
 
-export type ButtonStyledProps = Pick<ButtonProps, StyledPickType>;
+export type StyledButtonProps = Pick<ButtonProps, StyledPickType>;
+export type StyledButtonGroupProps = Omit<ButtonGroupProps, 'children' | 'ref'>;

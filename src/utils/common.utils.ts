@@ -1,6 +1,6 @@
 import theme from '../shared/theme';
 import { TitleStyledProps } from '../types/title';
-import { Align, Color } from '../types/common';
+import { Align, Color, Space } from '../types/common';
 import { TextStyledProps } from '../types/text';
 
 export const resetStyle = (type: string) => {
@@ -24,7 +24,7 @@ export const resetStyle = (type: string) => {
   }
 };
 
-export const getColorType = (color: Color) => {
+export const getColorType = (color?: Color) => {
   switch (color) {
     case 'primary':
       return theme.colors.primary;
@@ -41,21 +41,15 @@ export const getColorType = (color: Color) => {
   }
 };
 
-export const getFlexItemAlignStyle = (align: Align) => {
-  if (align === 'start') {
-    return `flex-start;`;
-  } else if (align === 'center') {
-    return `center;`;
-  }
+export const getFlexItemAlignStyle = (align?: Align) => {
+  if (align === 'start') return `flex-start;`;
+  else if (align === 'center') return `center;`;
   return `flex-end;`;
 };
 
-export const getTextAlignStyle = (align: Align) => {
-  if (align === 'start') {
-    return `start;`;
-  } else if (align === 'center') {
-    return `center;`;
-  }
+export const getTextAlignStyle = (align?: Align) => {
+  if (align === 'start') return `start;`;
+  else if (align === 'center') return `center;`;
   return `end;`;
 };
 
@@ -63,8 +57,12 @@ export const getTextStyle = (props: TitleStyledProps | TextStyledProps) => {
   const { mt, mr, mb, ml, color, align } = props;
 
   return `
-    margin: ${mt}px ${mr}px ${mb}px ${ml}px;
+    margin: ${getMarginStyle({ mt, mr, mb, ml })};
     color: ${color && getColorType(color).default};
     text-align: ${align && getTextAlignStyle(align)};
   `;
+};
+
+export const getMarginStyle = ({ mt = 0, mr = 0, mb = 0, ml = 0 }: Space) => {
+  return `${mt}px ${mr}px ${mb}px ${ml}px`;
 };
