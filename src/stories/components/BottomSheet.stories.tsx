@@ -25,10 +25,10 @@ const Template: Story<any> = ({ isDimmed }: any) => {
           <Text>안녕하세요</Text>
           <Text>안녕하세요</Text>
           <Text>안녕하세요</Text>
-          <Button mt={30} size="small" onClick={() => setIsOpen(false)}>
-            바텀시트 닫기
-          </Button>
         </div>
+        <Button mt={10} fullWidth onClick={() => setIsOpen(false)}>
+          바텀시트 닫기
+        </Button>
       </BottomSheet>
     </div>
   );
