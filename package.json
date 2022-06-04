@@ -1,6 +1,6 @@
 {
   "name": "grace-ui-kits",
-  "version": "1.2.7",
+  "version": "1.3.0",
   "description": "GRACE UI KITS",
   "main": "dist/index.js",
   "module": "dist/index.js",
