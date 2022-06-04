@@ -20,12 +20,12 @@ const BottomSheetHandler = () => {
 const BottomSheet = ({
   children,
   isOpen,
-  isDimmed,
-  onCancel,
+  isDimmed = true,
+  onClose,
 }: BottomSheetProps) => {
   const handleCancel = useCallback(() => {
-    if (onCancel) onCancel();
-  }, [onCancel]);
+    if (onClose) onClose();
+  }, [onClose]);
 
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';

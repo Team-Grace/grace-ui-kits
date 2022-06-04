@@ -12,14 +12,14 @@ export default {
 const Template: Story<any> = ({ isDimmed }: any) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const onCancel = () => {
+  const onClose = () => {
     setIsOpen(false);
   };
 
   return (
     <div>
       <Button onClick={() => setIsOpen(true)}>바텀시트 오픈</Button>
-      <BottomSheet isOpen={isOpen} onCancel={onCancel} isDimmed={isDimmed}>
+      <BottomSheet isOpen={isOpen} onClose={onClose} isDimmed={isDimmed}>
         <div style={{ padding: '20px' }}>
           <Text>안녕하세요</Text>
           <Text>안녕하세요</Text>

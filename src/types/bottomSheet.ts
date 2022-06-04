@@ -7,5 +7,5 @@ export interface BottomSheetProps
   children: React.ReactNode;
   isOpen: boolean;
   isDimmed?: boolean;
-  onCancel?: () => void;
+  onClose?: () => void;
 }
