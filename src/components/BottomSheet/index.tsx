@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Dimmend } from '../../components/Common';
 import { BottomSheetProps } from '../../types/bottomSheet';
 import {
@@ -23,6 +23,10 @@ const BottomSheet = ({
   isDimmed,
   onCancel,
 }: BottomSheetProps) => {
+  const handleCancel = useCallback(() => {
+    if (onCancel) onCancel();
+  }, [onCancel]);
+
   useEffect(() => {
     if (isOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'auto';
@@ -30,7 +34,7 @@ const BottomSheet = ({
 
   return (
     <BottomSheetWrapper isOpen={isOpen}>
-      <Dimmend onClick={onCancel} visible={isOpen && isDimmed} />
+      <Dimmend onClick={handleCancel} visible={isOpen && isDimmed} />
       <BottomSheetContainer isOpen={isOpen}>
         <BottomSheetHandler />
         <BottomSheetContentsContainer>{children}</BottomSheetContentsContainer>
