@@ -1,9 +1,9 @@
 import React, { ForwardedRef, useCallback } from 'react';
 import { CardProps, CardAddonProps, CardContentProps } from '../../types/card';
 import {
-  StyledCard,
-  StyledCardTitleContainer,
-  StyledCardContentContainer,
+  CardWrapper,
+  CardTitleContainer,
+  CardContentContainer,
 } from './styled';
 
 const CardAddon = ({ children, extra, type, onExtra }: CardAddonProps) => {
@@ -15,15 +15,15 @@ const CardAddon = ({ children, extra, type, onExtra }: CardAddonProps) => {
   );
 
   return (
-    <StyledCardTitleContainer type={type}>
+    <CardTitleContainer type={type}>
       {children}
       {extra && <button onClick={handleExtra}>{extra}</button>}
-    </StyledCardTitleContainer>
+    </CardTitleContainer>
   );
 };
 
 const CardContent = ({ children }: CardContentProps) => {
-  return <StyledCardContentContainer>{children}</StyledCardContentContainer>;
+  return <CardContentContainer>{children}</CardContentContainer>;
 };
 
 const Card = Object.assign(
@@ -45,9 +45,9 @@ const Card = Object.assign(
       const props = { shape, size, width, mt, mr, mb, ml };
 
       return (
-        <StyledCard ref={ref} {...props} {...rest}>
+        <CardWrapper ref={ref} {...props} {...rest}>
           {children}
-        </StyledCard>
+        </CardWrapper>
       );
     }
   ),

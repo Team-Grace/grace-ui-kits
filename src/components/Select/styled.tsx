@@ -12,7 +12,7 @@ import {
   getPaddingSelectStyle,
 } from '../../utils/select';
 
-export const StyledSelect = styled.div<StyledSelectProps>`
+export const SelectWrapper = styled.div<StyledSelectProps>`
   position: relative;
   width: ${({ width }) => (width ? `${width}px` : '100%')};
   margin: ${({ mt, mr, mb, ml }) => `${mt}px ${mr}px ${mb}px ${ml}px`};
@@ -24,6 +24,7 @@ export const StyledSelectInput = styled.div<StyledSelectInputProps>`
   align-items: center;
   cursor: pointer;
   border: 1px solid ${theme.colors.gray[200]};
+  padding: ${({ size }) => getPaddingSelectStyle(size)};
   border-radius: ${({ shape }) => (shape === 'rect' ? '' : '6px')};
   transition: all 0.15s;
 
@@ -31,6 +32,7 @@ export const StyledSelectInput = styled.div<StyledSelectInputProps>`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: ${({ size }) => getFontSizeStyle(size)};
 
     &.placeholder {
       color: ${theme.colors.gray[400]};
@@ -45,10 +47,6 @@ export const StyledSelectInput = styled.div<StyledSelectInputProps>`
       margin-left: 10px;
       text-align: end;
     }
-
-    ${({ size }) => {
-      return getFontSizeStyle(size);
-    }}
   }
 
   &:hover {
@@ -67,16 +65,12 @@ export const StyledSelectInput = styled.div<StyledSelectInputProps>`
       ${({ color }) => color && getColorType(color).default};
     border: ${({ color }) => color && `1px solid ${getColorType(color).hover}`};
   }
-
-  ${({ size }) => {
-    return getPaddingSelectStyle(size);
-  }}
 `;
 
 export const StyledSelectItemContainer = styled.ul<StyledSelectItemContainerProps>`
   ${resetStyle('ul')}
   position: absolute;
-  top: 55px;
+  top: ${({ size }) => getTopPositionSelectItemContainerStyle(size)};
   width: 100%;
   max-height: ${({ height }) => height && `${height}px`};
   background-color: #fff;
@@ -88,12 +82,12 @@ export const StyledSelectItemContainer = styled.ul<StyledSelectItemContainerProp
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
   }
-
-  ${({ size }) => getTopPositionSelectItemContainerStyle(size)}
 `;
 
 export const StyledSelectItem = styled.li<StyledSelectItemProps>`
   cursor: pointer;
+  padding: ${({ size }) => getPaddingSelectStyle(size)};
+  font-size: ${({ size }) => getFontSizeStyle(size)};
 
   &:hover {
     background-color: ${theme.colors.gray[50]};
@@ -102,11 +96,4 @@ export const StyledSelectItem = styled.li<StyledSelectItemProps>`
   &.active {
     background-color: ${({ color }) => getColorType(color).light};
   }
-
-  ${({ size }) => {
-    return `
-      ${getPaddingSelectStyle(size)};
-      ${getFontSizeStyle(size)};
-    `;
-  }}
 `;

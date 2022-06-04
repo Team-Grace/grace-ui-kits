@@ -12,7 +12,7 @@ const getCardPaddingStyle = (size: Size) => {
   return `padding: 20px;`;
 };
 
-export const StyledCard = styled.div<StyledCardProps>`
+export const CardWrapper = styled.div<StyledCardProps>`
   width: ${({ width }) => (width ? `${width}px` : `100%`)};
   border: 1px solid ${theme.colors.gray[200]};
   border-radius: ${({ shape }) => (shape === 'rect' ? '' : '6px')};
@@ -39,9 +39,7 @@ export const StyledCard = styled.div<StyledCardProps>`
   }
 `;
 
-export const StyledCardTitleContainer = styled.div<
-  Pick<StyledCardProps, 'type'>
->`
+export const CardTitleContainer = styled.div<Pick<StyledCardProps, 'type'>>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,4 +64,4 @@ export const StyledCardTitleContainer = styled.div<
   }}
 `;
 
-export const StyledCardContentContainer = styled.div``;
+export const CardContentContainer = styled.div``;

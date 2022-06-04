@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { StyledButtonGroupProps } from '../../types/button';
 import { getFlexItemAlignStyle, getMarginStyle } from '../../utils/common';
 
-export const StyledButtonGroup = styled.div<StyledButtonGroupProps>`
+export const ButtonGroupWrapper = styled.div<StyledButtonGroupProps>`
   width: 100%;
   display: flex;
   flex-direction: ${({ direction }) =>

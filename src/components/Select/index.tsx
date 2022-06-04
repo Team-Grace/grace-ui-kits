@@ -13,7 +13,7 @@ import {
 } from '../../types/select';
 import Text from '../Text';
 import {
-  StyledSelect,
+  SelectWrapper,
   StyledSelectInput,
   StyledSelectItem,
   StyledSelectItemContainer,
@@ -107,7 +107,7 @@ const Select = Object.assign(
       return (
         <SelectContext.Provider
           value={{ size, color, selectValue: value, onChange: handleChange }}>
-          <StyledSelect ref={ref} {...props}>
+          <SelectWrapper ref={ref} {...props}>
             <StyledSelectInput
               ref={inputRef}
               className={isOpenSelect ? 'active' : ''}
@@ -124,7 +124,7 @@ const Select = Object.assign(
                 {children}
               </StyledSelectItemContainer>
             )}
-          </StyledSelect>
+          </SelectWrapper>
         </SelectContext.Provider>
       );
     }

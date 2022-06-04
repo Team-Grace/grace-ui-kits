@@ -19,16 +19,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: ${({ shape }) => (shape === 'rect' ? '0' : '6px')};
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'max-content')};
-
-  // size
-  ${({ size }) => {
-    if (size) {
-      return `
-        ${getPaddingSizeStyle(size)}
-        ${getFontSizeStyle(size)}
-      `;
-    }
-  }}
+  font-size: ${({ size }) => getFontSizeStyle(size)};
+  padding: ${({ size }) => getPaddingSizeStyle(size)};
 
   // color
   ${({ color, variant }) => {

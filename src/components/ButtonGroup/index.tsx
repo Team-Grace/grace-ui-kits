@@ -1,6 +1,6 @@
 import React, { ForwardedRef } from 'react';
 import { ButtonGroupProps } from '../../types/button';
-import { StyledButtonGroup } from './styled';
+import { ButtonGroupWrapper } from './styled';
 
 const ButtonGroup = React.forwardRef(
   (
@@ -20,9 +20,9 @@ const ButtonGroup = React.forwardRef(
     const props = { direction, gap, align, mt, mr, mb, ml };
 
     return (
-      <StyledButtonGroup ref={ref} {...props} {...rest}>
+      <ButtonGroupWrapper ref={ref} {...props} {...rest}>
         {children}
-      </StyledButtonGroup>
+      </ButtonGroupWrapper>
     );
   }
 );
