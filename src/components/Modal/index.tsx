@@ -109,7 +109,7 @@ const Modal = Object.assign(
     return (
       <>
         {isOpen && (
-          <Dimmend>
+          <Dimmend visible={isOpen}>
             <ModalContext.Provider value={providerValue}>
               <ModalWrapper shape={shape} {...rest}>
                 {title && <Modal.Header>{title}</Modal.Header>}

@@ -1,15 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Dimmend } from '../../components/Common';
 import { BottomSheetProps } from '../../types/bottomSheet';
-import { BottomSheetWrapper, InnerContainer } from './styled';
+import {
+  BottomSheetContainer,
+  BottomSheetContentsContainer,
+  BottomSheetHandle,
+  BottomSheetHandlerWrapper,
+  BottomSheetWrapper,
+} from './styled';
 
-const BottomSheet = ({ children, isOpen }: BottomSheetProps) => {
+const BottomSheetHandler = () => {
   return (
-    <Dimmend>
-      <BottomSheetWrapper isOpen={isOpen}>
-        <InnerContainer>{children}</InnerContainer>
-      </BottomSheetWrapper>
-    </Dimmend>
+    <BottomSheetHandlerWrapper>
+      <BottomSheetHandle />
+    </BottomSheetHandlerWrapper>
+  );
+};
+
+const BottomSheet = ({
+  children,
+  isOpen,
+  isDimmed,
+  onCancel,
+}: BottomSheetProps) => {
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'auto';
+  }, [isOpen]);
+
+  return (
+    <BottomSheetWrapper isOpen={isOpen}>
+      <Dimmend onClick={onCancel} visible={isOpen && isDimmed} />
+      <BottomSheetContainer isOpen={isOpen}>
+        <BottomSheetHandler />
+        <BottomSheetContentsContainer>{children}</BottomSheetContentsContainer>
+      </BottomSheetContainer>
+    </BottomSheetWrapper>
   );
 };
 

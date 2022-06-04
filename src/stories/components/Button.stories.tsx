@@ -70,6 +70,7 @@ Primary.args = {
   color: 'primary',
   size: 'medium',
   shape: 'rect',
+  disabled: false,
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
 };
 
@@ -79,6 +80,7 @@ Secondary.args = {
   color: 'secondary',
   size: 'medium',
   shape: 'rect',
+  disabled: false,
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
 };
 
@@ -88,6 +90,7 @@ Success.args = {
   size: 'medium',
   color: 'success',
   shape: 'rect',
+  disabled: false,
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
 };
 
@@ -97,6 +100,7 @@ Error.args = {
   size: 'medium',
   color: 'error',
   shape: 'rect',
+  disabled: false,
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
 };
 
@@ -106,5 +110,6 @@ Modern.args = {
   size: 'medium',
   color: 'modern',
   shape: 'rect',
+  disabled: false,
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
 };

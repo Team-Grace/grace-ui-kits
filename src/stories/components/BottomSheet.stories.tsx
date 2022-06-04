@@ -1,20 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Story } from '@storybook/react/types-6-0';
 import BottomSheet from 'components/BottomSheet';
+import Button from 'components/Button';
+import Text from 'components/Text';
 
 export default {
   title: 'components/BottomSheet',
   argTypes: {},
 };
 
-const Template: Story<any> = () => {
+const Template: Story<any> = ({ isDimmed }: any) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onCancel = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div>
-      <BottomSheet>{'hi'}</BottomSheet>
+      <Button onClick={() => setIsOpen(true)}>바텀시트 오픈</Button>
+      <BottomSheet isOpen={isOpen} onCancel={onCancel} isDimmed={isDimmed}>
+        <div style={{ padding: '20px' }}>
+          <Text>안녕하세요</Text>
+          <Text>안녕하세요</Text>
+          <Text>안녕하세요</Text>
+          <Text>안녕하세요</Text>
+          <Button mt={30} size="small" onClick={() => setIsOpen(false)}>
+            바텀시트 닫기
+          </Button>
+        </div>
+      </BottomSheet>
     </div>
   );
 };
 
 export const Default = Template.bind({});
 
-Default.args = {};
+Default.args = {
+  isDimmed: true,
+};

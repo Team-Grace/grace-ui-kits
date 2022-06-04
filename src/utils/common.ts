@@ -75,7 +75,7 @@ export const getTextStyle = ({
 };
 
 export const getMarginStyle = ({ mt = 0, mr = 0, mb = 0, ml = 0 }: Space) => {
-  return `${mt}px ${mr}px ${mb}px ${ml}px`;
+  return `${mt}px ${mr}px ${mb}px ${ml}px;`;
 };
 
 export const getPaddingSizeStyle = (size?: Size) => {
