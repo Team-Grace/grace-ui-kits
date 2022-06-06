@@ -71,17 +71,17 @@ Primary.args = {
   size: 'medium',
   shape: 'rect',
   disabled: false,
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };
 
 Secondary.args = {
-  children: 'Button Secondat',
+  children: 'Button Secondary',
   fullWidth: false,
   color: 'secondary',
   size: 'medium',
   shape: 'rect',
   disabled: false,
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };
 
 Success.args = {
@@ -91,7 +91,7 @@ Success.args = {
   color: 'success',
   shape: 'rect',
   disabled: false,
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };
 
 Error.args = {
@@ -101,7 +101,7 @@ Error.args = {
   color: 'error',
   shape: 'rect',
   disabled: false,
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };
 
 Modern.args = {
@@ -111,5 +111,5 @@ Modern.args = {
   color: 'modern',
   shape: 'rect',
   disabled: false,
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => alert(e.target),
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => console.log(e.target),
 };
