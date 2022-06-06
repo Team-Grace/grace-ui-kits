@@ -4,21 +4,19 @@ import { Align, Color, Space, Size } from '../types/common';
 import { StyledTextProps } from '../types/text';
 
 export const resetStyle = (type: string) => {
-  const spaceReset = `
-    margin: 0;
-    padding: 0;
-  `;
   switch (type) {
     case 'button':
       return `
-        ${spaceReset}
+        margin: 0;
+        padding: 0;
         border: none;
         outline: none;
         cursor: pointer;
       `;
     case 'ul':
       return `
-        ${spaceReset}
+        margin: 0;
+        padding: 0;
         list-style: none;
       `;
     default:
@@ -77,23 +75,23 @@ export const getTextStyle = ({
 };
 
 export const getMarginStyle = ({ mt = 0, mr = 0, mb = 0, ml = 0 }: Space) => {
-  return `${mt}px ${mr}px ${mb}px ${ml}px`;
+  return `${mt}px ${mr}px ${mb}px ${ml}px;`;
 };
 
 export const getPaddingSizeStyle = (size?: Size) => {
   if (size === 'small') {
-    return `padding: 4px 14px;`;
+    return `4px 14px;`;
   } else if (size === 'medium') {
-    return `padding: 6px 18px;`;
+    return `6px 18px;`;
   }
-  return `padding: 8px 22px;`;
+  return `8px 22px;`;
 };
 
 export const getFontSizeStyle = (size?: Size) => {
   if (size === 'small') {
-    return `font-size: 0.85rem; `;
+    return `0.85rem;`;
   } else if (size === 'medium') {
-    return `font-size: 1rem; `;
+    return `1rem;`;
   }
-  return ` font-size: 1.15rem; `;
+  return `1.15rem;`;
 };

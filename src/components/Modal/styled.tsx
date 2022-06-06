@@ -4,7 +4,7 @@ import { getColorType, resetStyle } from '../../utils/common';
 import { StyledModalProps } from '../../types/modal';
 import { Color } from '../../types/common';
 
-export const StyledModal = styled.div<StyledModalProps>`
+export const ModalWrapper = styled.div<StyledModalProps>`
   min-width: 280px;
   max-width: 340px;
   background-color: #fff;
@@ -12,7 +12,7 @@ export const StyledModal = styled.div<StyledModalProps>`
   border-radius: ${({ shape }) => (shape === 'rect' ? '' : '6px')};
 `;
 
-export const ModalHeaderContainer = styled.div<{ color: Color }>`
+export const ModalHeaderContainer = styled.div<{ color?: Color }>`
   display: flex;
   justify-content: space-between;
   align-items: center;

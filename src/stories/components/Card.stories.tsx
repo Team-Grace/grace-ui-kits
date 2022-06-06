@@ -18,14 +18,18 @@ export default {
       options: ['contained', 'outlined'],
       control: { type: 'select' },
     },
+    shape: {
+      options: ['rect', 'round'],
+      control: { type: 'select' },
+    },
   },
 };
 
-const Template: Story<CardProps> = ({ size, extra, type, onExtra }) => {
+const Template: Story<CardProps> = ({ size, extra, type, shape, onExtra }) => {
   return (
     <>
       <h2>Card No Title</h2>
-      <Card mb={20} size={size}>
+      <Card mb={20} size={size} shape={shape}>
         <Card.Content>
           <Text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. At,
@@ -39,7 +43,7 @@ const Template: Story<CardProps> = ({ size, extra, type, onExtra }) => {
       <hr />
 
       <h2>Card width=100%</h2>
-      <Card mb={20} size={size}>
+      <Card mb={20} size={size} shape={shape}>
         <Card.Addon extra={extra} onExtra={onExtra} type={type}>
           <Title level={3}>Header</Title>
         </Card.Addon>
@@ -64,7 +68,7 @@ const Template: Story<CardProps> = ({ size, extra, type, onExtra }) => {
       <hr />
 
       <h2>Card width=500</h2>
-      <Card mb={20} size={size} width={500} type={type}>
+      <Card mb={20} size={size} width={500} type={type} shape={shape}>
         <Card.Addon extra={extra} onExtra={onExtra} type={type}>
           <Title level={3}>Header</Title>
         </Card.Addon>
@@ -81,7 +85,7 @@ const Template: Story<CardProps> = ({ size, extra, type, onExtra }) => {
 
       <h2>Card with Button (round)</h2>
 
-      <Card mb={20} size={size} width={500} shape="round">
+      <Card mb={20} size={size} width={500} shape={shape}>
         <Card.Addon extra={extra} onExtra={onExtra} type={type}>
           <Title color="primary" level={3}>
             Header (color=primary)
@@ -114,13 +118,15 @@ Default.args = {
   size: 'medium',
   type: 'outlined',
   extra: '',
-  onExtra: () => {},
+  shape: 'rect',
+  onExtra: () => alert('hi'),
 };
 
 Extra.args = {
   size: 'medium',
   type: 'outlined',
   extra: 'More',
+  shape: 'rect',
   onExtra: () => alert('hi'),
 };
 
@@ -128,5 +134,6 @@ Contained.args = {
   size: 'medium',
   type: 'contained',
   extra: 'More',
+  shape: 'rect',
   onExtra: () => alert('hi'),
 };

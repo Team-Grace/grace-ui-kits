@@ -4,6 +4,7 @@ import { StyledButtonProps } from '../../types/button';
 import {
   getColorType,
   getFontSizeStyle,
+  getMarginStyle,
   getPaddingSizeStyle,
 } from '../../utils/common';
 import { getVariantStyle, getVarianHoverStyle } from '../../utils/button';
@@ -19,18 +20,11 @@ export const StyledButton = styled.button<StyledButtonProps>`
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   border-radius: ${({ shape }) => (shape === 'rect' ? '0' : '6px')};
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'max-content')};
+  font-size: ${({ size }) => getFontSizeStyle(size)};
+  padding: ${({ size }) => getPaddingSizeStyle(size)};
+  margin: ${({ mt, mr, mb, ml }) => getMarginStyle({ mt, mr, mb, ml })};
 
-  // size
-  ${({ size }) => {
-    if (size) {
-      return `
-        ${getPaddingSizeStyle(size)}
-        ${getFontSizeStyle(size)}
-      `;
-    }
-  }}
-
-  // color
+  // color & variant
   ${({ color, variant }) => {
     if (color && variant) return getVariantStyle(color, variant);
   }}
@@ -58,7 +52,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
 
   // disabled
   &:disabled {
-    background-color: ${theme.colors.gray[10]};
+    background-color: ${({ variant }) =>
+      variant === 'contained' ? theme.colors.gray[50] : '#fff'};
     border: 1px solid ${theme.colors.gray[300]};
     color: ${theme.colors.gray[300]};
   }

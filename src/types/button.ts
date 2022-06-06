@@ -1,10 +1,20 @@
 import { ComponentProps } from 'react';
 import { Color, Shape, Size, Space, Variant } from './common';
 
-type StyledPickType = 'shape' | 'fullWidth' | 'size' | 'color' | 'variant';
+type StyledPickType =
+  | 'shape'
+  | 'fullWidth'
+  | 'size'
+  | 'color'
+  | 'variant'
+  | 'mt'
+  | 'mr'
+  | 'ml'
+  | 'mb';
+type ButtonOmitType = 'children' | 'ref';
 
 export interface ButtonGroupProps
-  extends Omit<ComponentProps<'div'>, 'ref'>,
+  extends Omit<ComponentProps<'div'>, ButtonOmitType>,
     Space {
   children: React.ReactNode;
   direction?: 'row' | 'column';
@@ -13,7 +23,8 @@ export interface ButtonGroupProps
 }
 
 export interface ButtonProps
-  extends Omit<ComponentProps<'button'>, 'ref' | 'children'> {
+  extends Omit<ComponentProps<'button'>, ButtonOmitType>,
+    Space {
   children: React.ReactNode | string;
   color?: Color;
   variant?: Variant;

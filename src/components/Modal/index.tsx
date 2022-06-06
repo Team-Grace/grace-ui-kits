@@ -1,10 +1,4 @@
-import React, {
-  ForwardedRef,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-} from 'react';
+import React, { useCallback, useContext, useEffect, useMemo } from 'react';
 import Button from '../Button';
 import ButtonGroup from '../ButtonGroup';
 import Title from '../Title';
@@ -15,7 +9,7 @@ import {
   ModalContextProps,
 } from '../../types/modal';
 import {
-  StyledModal,
+  ModalWrapper,
   ModalHeaderContainer,
   ModalContentContainer,
   ModalButtonContainer,
@@ -70,69 +64,64 @@ const ModalFooter = () => {
 };
 
 const Modal = Object.assign(
-  React.forwardRef(
-    (
-      {
-        children,
-        title = '',
-        buttonType = 'single',
-        shape = 'rect',
-        color = 'primary',
-        isOpen = false,
-        onClose,
-        onConfirm,
-        ...rest
-      }: ModalProps,
-      ref: ForwardedRef<HTMLDivElement>
-    ) => {
-      const handleClose = useCallback(
-        (e?: React.MouseEvent<HTMLButtonElement>) => {
-          if (onClose) onClose(e);
-        },
-        [onClose]
-      );
+  ({
+    children,
+    title = '',
+    buttonType = 'single',
+    shape = 'rect',
+    color = 'primary',
+    isOpen = false,
+    onClose,
+    onConfirm,
+    ...rest
+  }: ModalProps) => {
+    const handleClose = useCallback(
+      (e?: React.MouseEvent<HTMLButtonElement>) => {
+        if (onClose) onClose(e);
+      },
+      [onClose]
+    );
 
-      const handleConfirm = useCallback(
-        (e?: React.MouseEvent<HTMLButtonElement>) => {
-          if (onConfirm) onConfirm(e);
-        },
-        [onConfirm]
-      );
+    const handleConfirm = useCallback(
+      (e?: React.MouseEvent<HTMLButtonElement>) => {
+        if (onConfirm) onConfirm(e);
+      },
+      [onConfirm]
+    );
 
-      const providerValue = useMemo(() => {
-        return {
-          color,
-          buttonType,
-          onClose: handleClose,
-          onConfirm: handleConfirm,
-        };
-      }, [color, buttonType, handleClose, handleConfirm]);
+    const providerValue = useMemo(() => {
+      return {
+        color,
+        buttonType,
+        onClose: handleClose,
+        onConfirm: handleConfirm,
+      };
+    }, [color, buttonType, handleClose, handleConfirm]);
 
-      useEffect(() => {
-        if (isOpen) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = 'auto';
-        }
-      }, [isOpen]);
+    useEffect(() => {
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    }, [isOpen]);
 
-      return (
-        <>
-          {isOpen && (
-            <Dimmend>
-              <ModalContext.Provider value={providerValue}>
-                <StyledModal ref={ref} shape={shape} {...rest}>
-                  {title && <Modal.Header>{title}</Modal.Header>}
-                  <Modal.Content>{children}</Modal.Content>
-                  <Modal.Footer />
-                </StyledModal>
-              </ModalContext.Provider>
-            </Dimmend>
-          )}
-        </>
-      );
-    }
-  ),
+    return (
+      <>
+        {isOpen && (
+          <Dimmend visible={isOpen}>
+            <ModalContext.Provider value={providerValue}>
+              <ModalWrapper shape={shape} {...rest}>
+                {title && <Modal.Header>{title}</Modal.Header>}
+                <Modal.Content>{children}</Modal.Content>
+                <Modal.Footer />
+              </ModalWrapper>
+            </ModalContext.Provider>
+          </Dimmend>
+        )}
+      </>
+    );
+  },
   {
     Header: ModalHeader,
     Content: ModalContent,

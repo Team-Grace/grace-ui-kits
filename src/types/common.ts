@@ -1,7 +1,13 @@
 // type alias
 export type Align = 'start' | 'center' | 'end';
 export type Size = 'small' | 'medium' | 'large';
-export type Color = 'primary' | 'secondary' | 'success' | 'error' | 'modern';
+export type Color =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'error'
+  | 'modern'
+  | '';
 export type Variant = 'outlined' | 'contained';
 export type Shape = 'rect' | 'round';
 

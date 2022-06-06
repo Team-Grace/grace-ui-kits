@@ -13,6 +13,7 @@ export interface ModalProps extends Omit<ComponentProps<'div'>, ModalOmitType> {
   shape?: Shape;
   color?: Color;
   title?: string;
+  isBackground?: boolean;
 }
 
 export type ModalPickChildren = Pick<ModalProps, 'children'>;
